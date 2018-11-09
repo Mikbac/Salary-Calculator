@@ -8,15 +8,14 @@ import org.json.JSONObject;
 
 public class ExchangeRate {
 
-    private JSONObject downloadExchangeRate(String countryCode) {
+    private static JSONObject downloadExchangeRate(String countryCode) {
 
         try {
 
-            String url = "http://api.nbp.pl/api/exchangerates/rates/A/"+countryCode+"/today/?format=json";
+            String url = "http://api.nbp.pl/api/exchangerates/rates/A/" + countryCode + "/?format=json";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
             while ((inputLine = in.readLine()) != null) {
@@ -37,7 +36,10 @@ public class ExchangeRate {
 
     }
 
-    public double getExchangeRate(String countryCode) {
+    public static double getExchangeRate(String countryCode) {
+
+        if (countryCode.equalsIgnoreCase("PLN"))
+            return 1.0;
 
         double exchangeRate = 1.0;
 
@@ -51,7 +53,7 @@ public class ExchangeRate {
 
         } catch (Exception e) {
 
-            return 1.0;
+            return 0.0;
 
         }
 
