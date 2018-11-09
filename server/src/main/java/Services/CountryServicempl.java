@@ -9,6 +9,6 @@ public class CountryServicempl implements CountryService{
     private CountryRepository countryRepository;
 
     @Override
-    public double  earnings(String code) {return countryRepository.earnings(code);}
+    public double  earnings(String code, double valueFromClient) {return countryRepository.earnings(code, valueFromClient);}
 
 }
