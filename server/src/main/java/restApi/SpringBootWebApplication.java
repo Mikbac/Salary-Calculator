@@ -1,10 +1,11 @@
+package restApi;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -15,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableJpaRepositories("Repositories")
+@EnableJpaRepositories("restApi.repositories")
 @EnableSwagger2
 public class SpringBootWebApplication extends SpringBootServletInitializer {
 
@@ -33,7 +34,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.basePackage("ApiOne.Controllers"))
+                .select().apis(RequestHandlerSelectors.basePackage("restApi.controllers"))
                 .build();
     }
 

@@ -1,4 +1,4 @@
-package ExchangeRateFromApi;
+package restApi.exchangeRateFromApi;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

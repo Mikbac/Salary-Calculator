@@ -1,4 +1,4 @@
-import ExchangeRateFromApi.ExchangeRate;
+import restApi.exchangeRateFromApi.ExchangeRate;
 import org.junit.jupiter.api.Test;
 
 
