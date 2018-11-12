@@ -4,12 +4,15 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import restApi.entities.Country;
+import restApi.repositories.CountryRepository;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -38,7 +41,22 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
                 .build();
     }
 
+
+    @Bean
+    public CommandLineRunner demoData(CountryRepository countryRepository) {
+        return args -> {
+
+            countryRepository.save(new Country("UK", 25.00, 600.00, "GBP"));
+            countryRepository.save(new Country("DE", 20.00, 800.00, "EUR"));
+            countryRepository.save(new Country("PL", 19.00, 1200.00, "PLN"));
+
+        };
+    }
+
+
     public static void main(String[] args) {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
+
+
 }

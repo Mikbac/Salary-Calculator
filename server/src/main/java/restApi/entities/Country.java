@@ -14,7 +14,6 @@ public class Country {
     private String currencyCode;
 
 
-
     public Country(String countryCode, double tax, double fixedCosts, String currencyCode) {
         this.countryCode = countryCode;
         this.tax = tax;
@@ -22,7 +21,7 @@ public class Country {
         this.currencyCode = currencyCode;
     }
 
-    public Country(){
+    public Country() {
 
     }
 
