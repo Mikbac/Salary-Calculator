@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class CountryController {
 
