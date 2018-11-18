@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="myApp">
+
+<div ng-controller="myCtrl">
+
+    <h2>UK</h2>
+    <form>GBP: <input type="text" ng-model="value">
+        <button ng-click="myFunc('UK')">Calculate</button>
+    </form>
+    <p>PLN : {{content}}</p>
+
+
+    <h2>DE</h2>
+    <form>EUR: <input type="text" ng-model="value">
+        <button ng-click="myFunc('DE')">Calculate</button>
+    </form>
+    <p>PLN : {{content}}</p>
+
+
+    <h2>PL</h2>
+    <form>PLN: <input type="text" ng-model="value">
+        <button ng-click="myFunc('PL')">Calculate</button>
+    </form>
+    <p>PLN : {{content}}</p>
+
+
+</div>
+
+
+</body>
+<script src="scripts/script.js"></script>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+</html>

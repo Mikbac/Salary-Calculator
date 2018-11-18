@@ -11,19 +11,19 @@ import org.springframework.http.ResponseEntity;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-@CrossOrigin(origins = "*")
+
 @RestController
-public class CountryController {
+public class CountryRestController {
 
     @Autowired
     private CountryRepository countryRepository;
 
-    @RequestMapping(value = "/country", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/country/getAllCountry", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Country> allCountries() {
         return countryRepository.findAll();
     }
 
-    @RequestMapping(value = "/country/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/country/addCountry", method = RequestMethod.POST)
     public ResponseEntity<Country> addCountry(@RequestBody @Valid @NotNull Country country) {
         countryRepository.save(country);
         return ResponseEntity.ok().body(country);
