@@ -12,7 +12,11 @@
 ```    
     java -jar artifact-1.0-SNAPSHOT.jar
 ```
+
+Open the browser and hit http://localhost:8080/country
+
 ### Built With
+* [Java 8] (https://www.oracle.com/technetwork/java/index.html)
 
 * [Spring Boot](https://spring.io/projects/spring-boot) 
 
@@ -25,9 +29,6 @@
 
 ## Client
 
-### How to run:
-
-open the index.html
 
 ### Built With
 

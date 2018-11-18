@@ -1,14 +1,16 @@
-package restApi.exchangeRateFromApi;
+package restApi.salaries;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.json.JSONObject;
 
 
-public class ExchangeRate {
+public class SalaryPl {
 
     private static JSONObject downloadExchangeRate(String countryCode) {
 
@@ -38,27 +40,39 @@ public class ExchangeRate {
 
     }
 
-    public static double getExchangeRate(String countryCode) {
+    public static BigDecimal getExchangeRate(String countryCode) {
 
         if (countryCode.equalsIgnoreCase("PLN"))
-            return 1.0;
+            return BigDecimal.valueOf(1);
 
-        double exchangeRate = 1.0;
+        BigDecimal exchangeRate = BigDecimal.valueOf(1.0);
 
         try {
 
             JSONObject response = downloadExchangeRate(countryCode);
 
-            exchangeRate = response.getJSONArray("rates").getJSONObject(0).getDouble("mid");
+            exchangeRate = response.getJSONArray("rates").getJSONObject(0).getBigDecimal("mid");
 
             return exchangeRate;
 
         } catch (Exception e) {
 
-            return 0.0;
+            return BigDecimal.valueOf(0);
 
         }
 
+
+    }
+
+    public static BigDecimal getPlnSalary(BigDecimal valueFromClient, BigDecimal fixedCosts, BigDecimal tax, String currencyCode) {
+
+        BigDecimal baseValue = (valueFromClient.multiply(BigDecimal.valueOf(22))).subtract(fixedCosts);
+        BigDecimal salary = baseValue.subtract(baseValue.multiply(tax.divide(BigDecimal.valueOf(100))));
+
+        BigDecimal exchangePLN = getExchangeRate(currencyCode);
+        BigDecimal salaryPLN = exchangePLN.multiply(salary);
+
+        return salaryPLN.setScale(2, RoundingMode.CEILING);
 
     }
 

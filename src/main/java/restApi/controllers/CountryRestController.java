@@ -1,15 +1,17 @@
 package restApi.controllers;
 
 import restApi.entities.Country;
-import restApi.exchangeRateFromApi.ExchangeRate;
 import restApi.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
+import restApi.salaries.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 
 @RestController
@@ -31,10 +33,12 @@ public class CountryRestController {
 
     @RequestMapping(value = "/country/salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public double salary(@PathVariable String countryCode, @PathVariable double valueFromClient) {
-        double salary = countryRepository.salary(countryCode, valueFromClient);
-        double exchangePLN = ExchangeRate.getExchangeRate(countryRepository.getCurrencyCode(countryCode));
-        double salaryPLN = exchangePLN * salary;
-        return Math.round(salaryPLN * 100) / 100.0;
+    public BigDecimal salary(@PathVariable String countryCode, @PathVariable BigDecimal valueFromClient) {
+
+        BigDecimal fixedCosts = countryRepository.fixedCosts(countryCode);
+        BigDecimal tax = countryRepository.tax(countryCode);
+        String currencyCode = countryRepository.getCurrencyCode(countryCode);
+
+        return SalaryPl.getPlnSalary(valueFromClient, fixedCosts, tax, currencyCode);
     }
 }

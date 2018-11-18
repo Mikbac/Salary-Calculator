@@ -18,6 +18,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
 @EnableJpaRepositories("restApi.repositories")
 @EnableSwagger2
@@ -46,9 +48,9 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
     public CommandLineRunner demoData(CountryRepository countryRepository) {
         return args -> {
 
-            countryRepository.save(new Country("UK", 25.00, 600.00, "GBP"));
-            countryRepository.save(new Country("DE", 20.00, 800.00, "EUR"));
-            countryRepository.save(new Country("PL", 19.00, 1200.00, "PLN"));
+            countryRepository.save(new Country("UK", new BigDecimal(25), new BigDecimal(600), "GBP"));
+            countryRepository.save(new Country("DE", new BigDecimal(20), new BigDecimal(800), "EUR"));
+            countryRepository.save(new Country("PL", new BigDecimal(19), new BigDecimal(1200), "PLN"));
 
         };
     }

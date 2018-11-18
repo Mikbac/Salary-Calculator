@@ -1,6 +1,7 @@
 package restApi.entities;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 @Entity
@@ -9,12 +10,12 @@ public class Country {
 
     @Id
     private String countryCode;
-    private double tax;
-    private double fixedCosts;
+    private BigDecimal tax;
+    private BigDecimal fixedCosts;
     private String currencyCode;
 
 
-    public Country(String countryCode, double tax, double fixedCosts, String currencyCode) {
+    public Country(String countryCode, BigDecimal tax, BigDecimal fixedCosts, String currencyCode) {
         this.countryCode = countryCode;
         this.tax = tax;
         this.fixedCosts = fixedCosts;
@@ -33,19 +34,19 @@ public class Country {
         this.countryCode = countryCode;
     }
 
-    public double getTax() {
+    public BigDecimal getTax() {
         return tax;
     }
 
-    public void setTax(double tax) {
+    public void setTax(BigDecimal tax) {
         this.tax = tax;
     }
 
-    public double getFixedCosts() {
+    public BigDecimal getFixedCosts() {
         return fixedCosts;
     }
 
-    public void setFixedCosts(double fixedCosts) {
+    public void setFixedCosts(BigDecimal fixedCosts) {
         this.fixedCosts = fixedCosts;
     }
 
