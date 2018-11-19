@@ -1,8 +1,30 @@
+[![Build Status](https://travis-ci.org/Mikbac/zadanie_kalkulator_s.svg?branch=master)](https://travis-ci.org/Mikbac/zadanie_kalkulator_s)
+
 # zadanie_kalkulator_s
 
-## Server
+The application converts salary to PLN.
 
-### How to run:
+## Getting Started
+
+### Add new countries
+
+* You can use POST in swagger.
+
+```
+http://localhost:8080/swagger-ui.html#/
+```
+
+* Or add countries to `CommandLineRunner` in `SpringBootWebApplication` before run the application.
+
+### Added countries
+
+* UK
+* DE
+* PL
+
+
+
+### Installing
 ```
     mvn install
 ```
@@ -13,10 +35,16 @@
     java -jar artifact-1.0-SNAPSHOT.jar
 ```
 
-Open the browser and hit http://localhost:8080/country
+Open the browser and hit 
+```
+http://localhost:8080/country
+```
+
+## Server
 
 ### Built With
-* [Java 8] (https://www.oracle.com/technetwork/java/index.html)
+
+* [JDK 8](https://www.oracle.com/technetwork/java/index.html)
 
 * [Spring Boot](https://spring.io/projects/spring-boot) 
 
@@ -29,7 +57,10 @@ Open the browser and hit http://localhost:8080/country
 
 ## Client
 
-
 ### Built With
+
+* [HTML]()
+
+* [CSS]()
 
 * [AngularJS](https://angularjs.org/) 
