@@ -6,7 +6,7 @@ The application converts salary to PLN.
 
 ## Getting Started
 
-### Add new countries
+### Adding a new country
 
 * You can use POST in swagger.
 
