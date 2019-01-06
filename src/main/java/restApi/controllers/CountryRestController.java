@@ -17,10 +17,11 @@ import java.math.RoundingMode;
 @RestController
 public class CountryRestController {
 
+    // TODO @Autowired mogło by być na konstruktorach a nie na polach,
     @Autowired
     private CountryRepository countryRepository;
-
-    @RequestMapping(value = "/country/getAllCountry", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    // TODO  Endpointy w RestController nie trzymają konwencji REST
+    @RequestMapping(value = "/country/allCountry", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Country> allCountries() {
         return countryRepository.findAll();
     }

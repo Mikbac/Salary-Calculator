@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 
 public class SalaryPl {
-
+//TODO W kliencie NBP można by wykorzystać RestTemplate i można by zmapować odpowiedź automatycznie do z góry określonego DTO. W tej chwili jest to robione "na piechotę".
     private static JSONObject downloadExchangeRate(String countryCode) {
 
         try {
@@ -39,7 +39,7 @@ public class SalaryPl {
 
 
     }
-
+//TODO Brak obsługi błędów oraz walidacji danych wejściowych. Metoda SalaryPl::getExchangeRate zwraca zero w przypadku wyjątku. To powoduje ukrycie ew. wyjątków i błędne obliczenia.
     public static BigDecimal getExchangeRate(String countryCode) {
 
         if (countryCode.equalsIgnoreCase("PLN"))

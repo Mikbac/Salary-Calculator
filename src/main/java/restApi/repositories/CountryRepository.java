@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.math.BigDecimal;
 
 public interface CountryRepository extends CrudRepository<Country, Integer>, PagingAndSortingRepository<Country, Integer>  {
-
+// TODO  w CountryRepository można by użyć query methods zamiast @Query.
    @Query("SELECT c.fixedCosts FROM Country c WHERE c.countryCode=?1")
    BigDecimal fixedCosts(String countryCode);
 
