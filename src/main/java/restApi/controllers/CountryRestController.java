@@ -13,26 +13,31 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-
+@CrossOrigin
 @RestController
+@RequestMapping("/country-management/")
 public class CountryRestController {
 
-    // TODO @Autowired mogło by być na konstruktorach a nie na polach,
-    @Autowired
     private CountryRepository countryRepository;
-    // TODO  Endpointy w RestController nie trzymają konwencji REST
-    @RequestMapping(value = "/country/allCountry", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @Autowired
+    public CountryRestController(CountryRepository countryRepository){
+        this.countryRepository = countryRepository;
+    }
+
+    @RequestMapping(value = "countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Country> allCountries() {
         return countryRepository.findAll();
     }
 
-    @RequestMapping(value = "/country/addCountry", method = RequestMethod.POST)
+    @RequestMapping(value = "country", method = RequestMethod.POST)
     public ResponseEntity<Country> addCountry(@RequestBody @Valid @NotNull Country country) {
         countryRepository.save(country);
         return ResponseEntity.ok().body(country);
     }
 
-    @RequestMapping(value = "/country/salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    //TODO add query methods like countryRepository.findByCountryCode(countryCode).getTax()
+    @RequestMapping(value = "salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public BigDecimal salary(@PathVariable String countryCode, @PathVariable BigDecimal valueFromClient) {
 
