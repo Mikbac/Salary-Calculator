@@ -8,52 +8,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.json.JSONObject;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.client.RestTemplate;
 
 public class SalaryPl {
-//TODO W kliencie NBP można by wykorzystać RestTemplate i można by zmapować odpowiedź automatycznie do z góry określonego DTO. W tej chwili jest to robione "na piechotę".
-    private static JSONObject downloadExchangeRate(String countryCode) {
 
-        try {
-
-            String url = "http://api.nbp.pl/api/exchangerates/rates/A/" + countryCode + "/?format=json";
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            JSONObject myresponse = new JSONObject(response.toString());
-
-            return myresponse;
-
-        } catch (Exception e) {
-
-            return null;
-
-        }
-
-
-    }
-//TODO Brak obsługi błędów oraz walidacji danych wejściowych. Metoda SalaryPl::getExchangeRate zwraca zero w przypadku wyjątku. To powoduje ukrycie ew. wyjątków i błędne obliczenia.
     public static BigDecimal getExchangeRate(String countryCode) {
 
         if (countryCode.equalsIgnoreCase("PLN"))
             return BigDecimal.valueOf(1);
 
-        BigDecimal exchangeRate = BigDecimal.valueOf(1.0);
-
         try {
 
-            JSONObject response = downloadExchangeRate(countryCode);
+            String url = "http://api.nbp.pl/api/exchangerates/rates/A/" + countryCode + "/?format=json";
 
-            exchangeRate = response.getJSONArray("rates").getJSONObject(0).getBigDecimal("mid");
 
-            return exchangeRate;
+            RestTemplate restTemplate = new RestTemplate();
+            ExchangeRate exchangeRate = restTemplate.getForObject(url, ExchangeRate.class);
+            BigDecimal mid = exchangeRate.getRates()[0].getMid();
+
+            return mid;
 
         } catch (Exception e) {
 
@@ -63,6 +38,8 @@ public class SalaryPl {
 
 
     }
+//TODO Brak obsługi błędów oraz walidacji danych wejściowych. Metoda SalaryPl::getExchangeRate zwraca zero w przypadku wyjątku. To powoduje ukrycie ew. wyjątków i błędne obliczenia.
+
 
     public static BigDecimal getPlnSalary(BigDecimal valueFromClient, BigDecimal fixedCosts, BigDecimal tax, String currencyCode) {
 
