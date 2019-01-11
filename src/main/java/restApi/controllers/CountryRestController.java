@@ -21,7 +21,7 @@ public class CountryRestController {
     private CountryRepository countryRepository;
 
     @Autowired
-    public CountryRestController(CountryRepository countryRepository){
+    public CountryRestController(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
 
@@ -36,14 +36,17 @@ public class CountryRestController {
         return ResponseEntity.ok().body(country);
     }
 
-    //TODO add query methods like countryRepository.findByCountryCode(countryCode).getTax()
+
     @RequestMapping(value = "salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public BigDecimal salary(@PathVariable String countryCode, @PathVariable BigDecimal valueFromClient) {
 
-        BigDecimal fixedCosts = countryRepository.fixedCosts(countryCode);
-        BigDecimal tax = countryRepository.tax(countryCode);
-        String currencyCode = countryRepository.getCurrencyCode(countryCode);
+        Country country = countryRepository.findByCountryCode(countryCode);
+
+        BigDecimal fixedCosts = country.getFixedCosts();
+        BigDecimal tax = country.getTax();
+        String currencyCode = country.getCurrencyCode();
+
 
         return SalaryPl.getPlnSalary(valueFromClient, fixedCosts, tax, currencyCode);
     }
