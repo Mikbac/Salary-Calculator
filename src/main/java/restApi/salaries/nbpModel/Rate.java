@@ -1,4 +1,4 @@
-package restApi.salaries;
+package restApi.salaries.nbpModel;
 
 import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

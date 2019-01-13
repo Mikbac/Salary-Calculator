@@ -10,8 +10,8 @@ import restApi.salaries.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.lang.reflect.Executable;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @CrossOrigin
 @RestController
@@ -38,16 +38,25 @@ public class CountryRestController {
 
 
     @RequestMapping(value = "salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public BigDecimal salary(@PathVariable String countryCode, @PathVariable BigDecimal valueFromClient) {
+    public String salary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
 
-        Country country = countryRepository.findByCountryCode(countryCode);
+        if (!countryRepository.existsCountryByCountryCode(countryCode)) {
+            return "\"This country code does not exist!\"";
+        }
 
-        BigDecimal fixedCosts = country.getFixedCosts();
-        BigDecimal tax = country.getTax();
-        String currencyCode = country.getCurrencyCode();
+        try {
+            Country country = countryRepository.findByCountryCode(countryCode);
 
+            BigDecimal fixedCosts = country.getFixedCosts();
+            BigDecimal tax = country.getTax();
+            String currencyCode = country.getCurrencyCode();
+            return SalaryPl.getPlnSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode).toString();
 
-        return SalaryPl.getPlnSalary(valueFromClient, fixedCosts, tax, currencyCode);
+        } catch (NumberFormatException e) {
+            return "\"Wrong value!\"";
+        } catch (Exception e) {
+            return "\"Wrong URI!\"";
+        }
+
     }
 }
