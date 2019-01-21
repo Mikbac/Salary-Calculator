@@ -1,16 +1,15 @@
-package restApi.controllers;
+package com.controllers;
 
-import restApi.entities.Country;
-import restApi.repositories.CountryRepository;
+import com.entities.Country;
+import com.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import restApi.salaries.SalaryPl;
+import com.salaries.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.lang.reflect.Executable;
 import java.math.BigDecimal;
 
 @CrossOrigin

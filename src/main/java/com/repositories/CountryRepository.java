@@ -1,6 +1,6 @@
-package restApi.repositories;
+package com.repositories;
 
-import restApi.entities.Country;
+import com.entities.Country;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

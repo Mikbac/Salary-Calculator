@@ -1,10 +1,10 @@
-package restApi.salaries;
+package com.salaries;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import org.springframework.web.client.RestTemplate;
-import restApi.salaries.nbpModel.ExchangeRate;
+import com.salaries.nbpModel.ExchangeRate;
 
 public class SalaryPl {
 

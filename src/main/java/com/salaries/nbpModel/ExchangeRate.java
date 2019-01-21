@@ -1,4 +1,4 @@
-package restApi.salaries.nbpModel;
+package com.salaries.nbpModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

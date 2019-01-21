@@ -1,4 +1,4 @@
-package restApi.entities;
+package com.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

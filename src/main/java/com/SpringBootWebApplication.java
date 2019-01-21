@@ -1,4 +1,4 @@
-package restApi;
+package com;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,8 +11,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import restApi.entities.Country;
-import restApi.repositories.CountryRepository;
+import com.entities.Country;
+import com.repositories.CountryRepository;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.math.BigDecimal;
 
 @SpringBootApplication
-@EnableJpaRepositories("restApi.repositories")
+@EnableJpaRepositories("com.repositories")
 @EnableSwagger2
 public class SpringBootWebApplication extends SpringBootServletInitializer {
 
@@ -39,7 +39,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.basePackage("restApi.controllers"))
+                .select().apis(RequestHandlerSelectors.basePackage("com.controllers"))
                 .build();
     }
 

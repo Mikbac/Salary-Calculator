@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import restApi.salaries.SalaryPl;
+import com.salaries.SalaryPl;
 
 
 import java.math.BigDecimal;
