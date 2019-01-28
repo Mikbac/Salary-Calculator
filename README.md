@@ -37,7 +37,7 @@ http://localhost:8080/swagger-ui.html#/
     cd target
 ```
 ```    
-    java -jar artifact-1.0-SNAPSHOT.jar
+    java -jar artifact-1.0-SNAPSHOT.war
 ```
 
 Open the browser and hit 
