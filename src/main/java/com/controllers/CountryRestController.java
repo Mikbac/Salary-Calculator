@@ -1,6 +1,9 @@
 package com.controllers;
 
 import com.entities.Country;
+import com.exception.InvalidCountryIdException;
+import com.exception.InvalidNumberFormatException;
+import com.exception.InvalidUriException;
 import com.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,7 +17,7 @@ import java.math.BigDecimal;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/country-management/")
+@RequestMapping("/salary-calculator/")
 public class CountryRestController {
 
     private CountryRepository countryRepository;
@@ -36,11 +39,11 @@ public class CountryRestController {
     }
 
 
-    @RequestMapping(value = "salary/{countryCode}/{valueFromClient}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String salary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
+    @RequestMapping(value = "country/{countryCode}/salary/{valueFromClient}/salaryPLN", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public BigDecimal salary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
 
         if (!countryRepository.existsCountryByCountryCode(countryCode)) {
-            return "\"This country code does not exist!\"";
+            throw new InvalidCountryIdException();
         }
 
         try {
@@ -49,12 +52,12 @@ public class CountryRestController {
             BigDecimal fixedCosts = country.getFixedCosts();
             BigDecimal tax = country.getTax();
             String currencyCode = country.getCurrencyCode();
-            return SalaryPl.getPlnSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode).toString();
+            return SalaryPl.getPlnSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode);
 
         } catch (NumberFormatException e) {
-            return "\"Wrong value!\"";
+            throw new InvalidNumberFormatException();
         } catch (Exception e) {
-            return "\"Wrong URI!\"";
+            throw new InvalidUriException();
         }
 
     }
