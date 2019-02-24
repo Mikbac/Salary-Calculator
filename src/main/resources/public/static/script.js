@@ -9,9 +9,7 @@ $scope.content=0;
   $http.get("/salary-calculator/country/"+country+"/salary/"+value+"/salaryPLN")
   .then(function(response) {
       $scope.content = response.data;    
-  });
-  
+        });
     };
-  
-  
+
 });
