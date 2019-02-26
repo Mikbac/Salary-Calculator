@@ -69,3 +69,7 @@ http://localhost:8080/country
 * [CSS]()
 
 * [AngularJS](https://angularjs.org/) 
+
+## Example of features
+
+![ex1](img/ex1.png)
