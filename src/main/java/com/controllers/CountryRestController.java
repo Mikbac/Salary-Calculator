@@ -5,11 +5,12 @@ import com.exception.InvalidCountryIdException;
 import com.exception.InvalidNumberFormatException;
 import com.exception.InvalidUriException;
 import com.repositories.CountryRepository;
+import com.salaries.Salary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import com.salaries.SalaryPl;
+import com.salaries.salary.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -42,6 +43,9 @@ public class CountryRestController {
     @RequestMapping(value = "country/{countryCode}/salary/{valueFromClient}/salaryPLN", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public BigDecimal salary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
 
+        Salary salary = new Salary();
+        salary.setStrategy(new SalaryPl());
+
         if (!countryRepository.existsCountryByCountryCode(countryCode)) {
             throw new InvalidCountryIdException();
         }
@@ -52,7 +56,7 @@ public class CountryRestController {
             BigDecimal fixedCosts = country.getFixedCosts();
             BigDecimal tax = country.getTax();
             String currencyCode = country.getCurrencyCode();
-            return SalaryPl.getPlnSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode);
+            return salary.calculateSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode);
 
         } catch (NumberFormatException e) {
             throw new InvalidNumberFormatException();
