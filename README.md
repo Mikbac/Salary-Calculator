@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Mikbac/zadanie_kalkulator_s.svg?branch=master)](https://travis-ci.org/Mikbac/zadanie_kalkulator_s)
+[![Build Status](https://travis-ci.org/Mikbac/Salary-Calculator.svg?branch=master)](https://travis-ci.org/Mikbac/Salary-Calculator)
 
 # zadanie_kalkulator_s
 
