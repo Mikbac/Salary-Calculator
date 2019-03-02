@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Mikbac/Salary-Calculator.svg?branch=master)](https://travis-ci.org/Mikbac/Salary-Calculator)
 
-# zadanie_kalkulator_s
+# Salary Calculator
 
 The application converts salary to PLN.
 
@@ -45,6 +45,13 @@ Open the browser and hit
 http://localhost:8080/country
 ```
 
+## API Endpoint
+|Endpoints|Usage|Params|
+|---|---|---|
+|```GET /salary-calculator/countries```|Get all of the countries available for the app.||
+|```POST /salary-calculator/country```|Add a new country.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
+|```GET /salary-calculator/country/{countryCode}/salary/{valueFromClient}/salaryPLN```|Calculate salary.|**{countryCode}** - Country code <br>**{valueFromClient}** - Salary|
+
 ## Server
 
 ### Built With
@@ -58,6 +65,8 @@ http://localhost:8080/country
 * [HSQLDB](http://hsqldb.org/)
 
 * [JUnit 5](https://junit.org/junit5/)
+
+The server uses the [NBP Web API](http://api.nbp.pl/) . 
 
 
 ## Client
