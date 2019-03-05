@@ -14,7 +14,7 @@ The application converts salary to PLN.
 http://localhost:8080/swagger-ui.html#/
 ```
 
-* Or add countries to `CommandLineRunner` in `SpringBootWebApplication` before run the application.
+* Or add countries to the `import.sql` file before run the application.
 
 ### Added countries
 

@@ -44,18 +44,6 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
     }
 
 
-    @Bean
-    public CommandLineRunner demoData(CountryRepository countryRepository) {
-        return args -> {
-
-            countryRepository.save(new Country("UK", new BigDecimal(25), new BigDecimal(600), "GBP"));
-            countryRepository.save(new Country("DE", new BigDecimal(20), new BigDecimal(800), "EUR"));
-            countryRepository.save(new Country("PL", new BigDecimal(19), new BigDecimal(1200), "PLN"));
-
-        };
-    }
-
-
     public static void main(String[] args) {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
