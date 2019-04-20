@@ -2,7 +2,7 @@ import com.salaries.Salary;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.salaries.salary.SalaryPl;
+import com.salaries.strategies.SalaryPl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

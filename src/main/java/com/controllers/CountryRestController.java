@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import com.salaries.salary.SalaryPl;
+import com.salaries.strategies.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

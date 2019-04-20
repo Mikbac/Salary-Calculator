@@ -1,4 +1,4 @@
-package com.salaries.salary;
+package com.salaries.strategies;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -22,7 +22,6 @@ public class SalaryPl implements SalaryStrategy {
         BigDecimal mid = exchangeRate.getRates()[0].getMid();
 
         return mid;
-
 
     }
 
