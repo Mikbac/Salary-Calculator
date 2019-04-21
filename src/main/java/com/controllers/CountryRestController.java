@@ -1,10 +1,10 @@
 package com.controllers;
 
-import com.entities.Country;
-import com.exception.InvalidCountryIdException;
 import com.exception.InvalidNumberFormatException;
 import com.exception.InvalidUriException;
-import com.repositories.CountryRepository;
+import com.services.CountryService;
+import com.entities.Country;
+import com.exception.InvalidCountryIdException;
 import com.salaries.Salary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,51 +18,47 @@ import java.math.BigDecimal;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/salary-calculator/")
+@RequestMapping("/salary-calculator")
 public class CountryRestController {
 
-    private CountryRepository countryRepository;
+    private CountryService countryService;
 
     @Autowired
-    public CountryRestController(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public CountryRestController(CountryService countryService) {
+        this.countryService = countryService;
     }
 
-    @RequestMapping(value = "countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Country> allCountries() {
-        return countryRepository.findAll();
+        return countryService.findAll();
     }
 
-    @RequestMapping(value = "country", method = RequestMethod.POST)
+    @RequestMapping(value = "/country", method = RequestMethod.POST)
     public ResponseEntity<Country> addCountry(@RequestBody @Valid @NotNull Country country) {
-        countryRepository.save(country);
+        countryService.saveCountry(country);
         return ResponseEntity.ok().body(country);
     }
 
 
-    @RequestMapping(value = "country/{countryCode}/salary/{valueFromClient}/salaryPLN", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public BigDecimal salary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
+    @RequestMapping(value = "/country/{countryCode}/salary/{valueFromClient}/salaryPLN", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
 
         Salary salary = new Salary();
-        salary.setStrategy(new SalaryPl());
 
-        if (!countryRepository.existsCountryByCountryCode(countryCode)) {
+        countryService.setStrategy(salary, new SalaryPl());
+
+        if (!countryService.existsCountryByCountryCode(countryCode)) {
             throw new InvalidCountryIdException();
         }
-
         try {
-            Country country = countryRepository.findByCountryCode(countryCode);
 
-            BigDecimal fixedCosts = country.getFixedCosts();
-            BigDecimal tax = country.getTax();
-            String currencyCode = country.getCurrencyCode();
-            return salary.calculateSalary(new BigDecimal(valueFromClient), fixedCosts, tax, currencyCode);
+            return countryService.calculateSalary(salary, countryCode, valueFromClient);
 
         } catch (NumberFormatException e) {
             throw new InvalidNumberFormatException();
         } catch (Exception e) {
             throw new InvalidUriException();
         }
-
     }
 }

@@ -1,7 +1,11 @@
 package com.salaries;
 
+import com.entities.Country;
+import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 
+@Service
 public class Salary {
 
     private SalaryStrategy strategy;
@@ -14,7 +18,7 @@ public class Salary {
        return strategy.getExchangeRate(countryCode);
     }
 
-    public BigDecimal calculateSalary(BigDecimal valueFromClient, BigDecimal fixedCosts, BigDecimal tax, String currencyCode){
-        return strategy.calculateSalary(valueFromClient, fixedCosts, tax, currencyCode);
+    public BigDecimal calculateSalary(Country country, String valueFromClient){
+        return strategy.calculateSalary(country, valueFromClient);
     }
 }

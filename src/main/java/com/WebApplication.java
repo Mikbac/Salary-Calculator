@@ -4,26 +4,20 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import com.entities.Country;
-import com.repositories.CountryRepository;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.math.BigDecimal;
-
 @SpringBootApplication
-@EnableJpaRepositories("com.repositories")
 @EnableSwagger2
-public class SpringBootWebApplication extends SpringBootServletInitializer {
+public class WebApplication extends SpringBootServletInitializer {
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
@@ -45,7 +39,7 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootWebApplication.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 
 

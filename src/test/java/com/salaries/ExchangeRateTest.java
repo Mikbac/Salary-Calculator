@@ -1,3 +1,5 @@
+package com.salaries;
+
 import com.salaries.Salary;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ public class ExchangeRateTest {
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is correct value")
-    void getExchangeRateWhenCountryCodeIsCorrect() {
+    public void getExchangeRateWhenCountryCodeIsCorrect() {
 
         Salary salary = new Salary();
         salary.setStrategy(new SalaryPl());
@@ -27,7 +29,7 @@ public class ExchangeRateTest {
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is PLN")
-    void getExchangeRateWhenCountryCodeIsPLN() {
+    public void getExchangeRateWhenCountryCodeIsPLN() {
 
         Salary salary = new Salary();
         salary.setStrategy(new SalaryPl());
