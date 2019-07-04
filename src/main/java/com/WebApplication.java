@@ -15,9 +15,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import org.apache.logging.log4j.*;
+
 @SpringBootApplication
 @EnableSwagger2
 public class WebApplication extends SpringBootServletInitializer {
+
+    private static final Logger logger =  LogManager.getLogger(WebApplication.class);
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
@@ -39,6 +43,7 @@ public class WebApplication extends SpringBootServletInitializer {
 
 
     public static void main(String[] args) {
+        logger.info("Starting Spring boot application");
         SpringApplication.run(WebApplication.class, args);
     }
 
