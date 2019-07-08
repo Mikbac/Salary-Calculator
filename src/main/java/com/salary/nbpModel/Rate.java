@@ -1,5 +1,6 @@
-package com.salaries.nbpModel;
+package com.salary.nbpModel;
 
+import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ExchangeRate {
+public class Rate {
 
-    private Rate[] rates;
-
+    private BigDecimal mid;
 
 
 

@@ -1,16 +1,16 @@
-package com.controllers;
+package com.controller;
 
 import com.exception.InvalidNumberFormatException;
 import com.exception.InvalidUriException;
-import com.services.CountryService;
-import com.entities.Country;
+import com.model.CountryModel;
+import com.service.CountryService;
 import com.exception.InvalidCountryIdException;
-import com.salaries.Salary;
+import com.salary.Salary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import com.salaries.strategies.SalaryPl;
+import com.salary.strategies.SalaryPl;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -30,14 +30,14 @@ public class CountryRestController {
 
 
     @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Country> allCountries() {
+    public Iterable<CountryModel> allCountries() {
         return countryService.findAll();
     }
 
     @RequestMapping(value = "/country", method = RequestMethod.POST)
-    public ResponseEntity<Country> addCountry(@RequestBody @Valid @NotNull Country country) {
-        countryService.saveCountry(country);
-        return ResponseEntity.ok().body(country);
+    public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel countryModel) {
+        countryService.saveCountry(countryModel);
+        return ResponseEntity.ok().body(countryModel);
     }
 
 

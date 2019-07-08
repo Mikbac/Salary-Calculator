@@ -6,7 +6,7 @@ The application converts salary to PLN.
 
 ## Getting Started
 
-### Adding a new country
+### Adding a new countryModel
 
 * You can use POST in swagger.
 
@@ -42,15 +42,15 @@ http://localhost:8080/swagger-ui.html#/
 
 Open the browser and hit 
 ```
-http://localhost:8080/country
+http://localhost:8080/countryModel
 ```
 
 ## API Endpoint
 |Endpoints|Usage|Params|
 |---|---|---|
 |```GET /salary-calculator/countries```|Get all of the countries available for the app.||
-|```POST /salary-calculator/country```|Add a new country.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
-|```GET /salary-calculator/country/{countryCode}/salary/{valueFromClient}/salaryPLN```|Calculate salary.|**{countryCode}** - Country code <br>**{valueFromClient}** - Salary|
+|```POST /salary-calculator/countryModel```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
+|```GET /salary-calculator/countryModel/{countryCode}/salary/{valueFromClient}/salaryPLN```|Calculate salary.|**{countryCode}** - Country code <br>**{valueFromClient}** - Salary|
 
 ## Server
 

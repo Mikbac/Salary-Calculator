@@ -1,4 +1,4 @@
-package com.entities;
+package com.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Country {
+@Table(name = "country")
+public class CountryModel {
 
     @Id
     private String countryCode;

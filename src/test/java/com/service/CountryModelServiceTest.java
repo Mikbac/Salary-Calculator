@@ -1,7 +1,7 @@
-package com.services;
+package com.service;
 
-import com.salaries.Salary;
-import com.salaries.strategies.SalaryPl;
+import com.salary.Salary;
+import com.salary.strategies.SalaryPl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class CountryServiceTest {
+public class CountryModelServiceTest {
 
     @MockBean
     CountryService countryService;

@@ -1,9 +1,9 @@
-package com.services;
+package com.service;
 
-import com.entities.Country;
-import com.repositories.CountryRepository;
-import com.salaries.Salary;
-import com.salaries.strategies.SalaryPl;
+import com.model.CountryModel;
+import com.repository.CountryRepository;
+import com.salary.Salary;
+import com.salary.strategies.SalaryPl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +22,13 @@ public class CountryServiceImpl implements CountryService {
 
 
     @Override
-    public Iterable<Country> findAll() {
+    public Iterable<CountryModel> findAll() {
         return countryRepository.findAll();
     }
 
     @Override
-    public Country saveCountry(Country country) {
-        return countryRepository.save(country);
+    public CountryModel saveCountry(CountryModel countryModel) {
+        return countryRepository.save(countryModel);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient) {
-        Country country = countryRepository.findByCountryCode(countryCode);
-        return salary.calculateSalary(country, valueFromClient);
+        CountryModel countryModel = countryRepository.findByCountryCode(countryCode);
+        return salary.calculateSalary(countryModel, valueFromClient);
     }
 }

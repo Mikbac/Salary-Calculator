@@ -1,16 +1,16 @@
-package com.services;
+package com.service;
 
-import com.entities.Country;
-import com.salaries.Salary;
-import com.salaries.strategies.SalaryPl;
+import com.model.CountryModel;
+import com.salary.Salary;
+import com.salary.strategies.SalaryPl;
 
 import java.math.BigDecimal;
 
 public interface CountryService {
 
-    Iterable<Country> findAll();
+    Iterable<CountryModel> findAll();
 
-    Country saveCountry(Country country);
+    CountryModel saveCountry(CountryModel countryModel);
 
     void setStrategy(Salary salary, SalaryPl salaryPl);
 
