@@ -11,13 +11,20 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "country")
+@Table(name = PreferNames.Table.COUNTRY)
 public class CountryModel {
 
     @Id
+    @Column(name = PreferNames.Country.COUNTRY_CODE)
     private String countryCode;
+
+    @Column(name = PreferNames.Country.TAX)
     private BigDecimal tax;
+
+    @Column(name = PreferNames.Country.FIXED_COSTS)
     private BigDecimal fixedCosts;
+
+    @Column(name = PreferNames.Country.CURRENCY_CODE)
     private String currencyCode;
 
 }
