@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -16,7 +17,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = EntitiesNames.Country.TABLE)
-public class CountryModel {
+public class CountryModel implements Serializable {
 
     @Id
     @Column(name = EntitiesNames.Country.COUNTRY_CODE)
