@@ -1,4 +1,4 @@
-package pl.MikBac.salaryApp.model;
+package pl.MikBac.salaryApp.constants;
 
 /**
  * Created by MikBac on 2019

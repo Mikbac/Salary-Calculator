@@ -3,6 +3,7 @@ package pl.MikBac.salaryApp.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.MikBac.salaryApp.constants.EntitiesNames;
 
 import javax.persistence.*;
 import java.io.Serializable;
