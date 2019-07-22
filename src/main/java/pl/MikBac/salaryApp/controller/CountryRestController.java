@@ -3,7 +3,7 @@ package pl.MikBac.salaryApp.controller;
 import pl.MikBac.salaryApp.exception.InvalidNumberFormatException;
 import pl.MikBac.salaryApp.exception.InvalidUriException;
 import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.service.CountryService;
+import pl.MikBac.salaryApp.spring.service.CountryService;
 import pl.MikBac.salaryApp.exception.InvalidCountryIdException;
 import pl.MikBac.salaryApp.salary.Salary;
 import org.springframework.beans.factory.annotation.Autowired;

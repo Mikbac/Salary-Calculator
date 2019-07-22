@@ -1,4 +1,4 @@
-package pl.MikBac.salaryApp.service;
+package pl.MikBac.salaryApp.spring.service;
 
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.salary.Salary;
