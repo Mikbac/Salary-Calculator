@@ -1,18 +1,17 @@
+/**
+ * Created by MikBac on 2018
+ */
+
 package pl.MikBac.salaryApp.salary;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
 
-
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
-/**
- * Created by MikBac on 2018
- */
 
 public class ExchangeRateTest {
 
@@ -28,7 +27,6 @@ public class ExchangeRateTest {
         assertNotEquals(new BigDecimal(0), salary.getExchangeRate("GBP"));
         assertNotEquals(new BigDecimal(0), salary.getExchangeRate("gbp"));
     }
-
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is PLN")

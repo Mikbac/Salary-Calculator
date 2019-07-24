@@ -1,19 +1,18 @@
-package pl.MikBac.salaryApp.salary.strategies;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
-import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.salary.SalaryStrategy;
-import org.springframework.web.client.RestTemplate;
-import pl.MikBac.salaryApp.salary.nbpModel.ExchangeRate;
-
 /**
  * Created by MikBac on 2018
  */
 
-public class SalaryPl implements SalaryStrategy {
+package pl.MikBac.salaryApp.salary.strategies;
 
+import org.springframework.web.client.RestTemplate;
+import pl.MikBac.salaryApp.model.CountryModel;
+import pl.MikBac.salaryApp.salary.SalaryStrategy;
+import pl.MikBac.salaryApp.salary.nbpModel.ExchangeRate;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class SalaryPl implements SalaryStrategy {
 
     public SalaryPl() {
     }
@@ -24,7 +23,6 @@ public class SalaryPl implements SalaryStrategy {
             return BigDecimal.valueOf(1);
 
         String url = "http://api.nbp.pl/api/exchangerates/rates/A/" + currencyCode + "/?format=json";
-
 
         RestTemplate restTemplate = new RestTemplate();
         ExchangeRate exchangeRate = restTemplate.getForObject(url, ExchangeRate.class);
@@ -50,6 +48,5 @@ public class SalaryPl implements SalaryStrategy {
         return salaryPLN.setScale(2, RoundingMode.CEILING);
 
     }
-
 
 }

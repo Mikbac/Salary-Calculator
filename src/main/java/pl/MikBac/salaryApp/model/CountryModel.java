@@ -1,3 +1,7 @@
+/**
+ * Created by MikBac on 2018
+ */
+
 package pl.MikBac.salaryApp.model;
 
 import lombok.AllArgsConstructor;
@@ -5,13 +9,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.MikBac.salaryApp.constants.EntitiesNames;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-
-/**
- * Created by MikBac on 2018
- */
 
 @Data
 @AllArgsConstructor

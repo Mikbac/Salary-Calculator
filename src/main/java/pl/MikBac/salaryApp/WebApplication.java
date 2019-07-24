@@ -1,9 +1,15 @@
+/**
+ * Created by MikBac on 2018
+ */
+
 package pl.MikBac.salaryApp;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -14,17 +20,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import org.apache.logging.log4j.*;
-
-/**
- * Created by MikBac on 2018
- */
-
 @SpringBootApplication
 @EnableSwagger2
 public class WebApplication extends SpringBootServletInitializer {
 
-    private static final Logger logger =  LogManager.getLogger(WebApplication.class);
+    private static final Logger logger = LogManager.getLogger(WebApplication.class);
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
@@ -44,11 +44,9 @@ public class WebApplication extends SpringBootServletInitializer {
                 .build();
     }
 
-
     public static void main(String[] args) {
         logger.info("Starting Spring boot application");
         SpringApplication.run(WebApplication.class, args);
     }
-
 
 }

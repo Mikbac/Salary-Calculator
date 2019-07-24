@@ -1,11 +1,10 @@
-package pl.MikBac.salaryApp.constants;
-
 /**
  * Created by MikBac on 2019
  */
 
-public interface EntitiesNames {
+package pl.MikBac.salaryApp.constants;
 
+public interface EntitiesNames {
 
     interface Country {
         String TABLE = "Country";
@@ -15,6 +14,5 @@ public interface EntitiesNames {
         String CURRENCY_CODE = "currencyCode";
 
     }
-
 
 }

@@ -1,13 +1,13 @@
-package pl.MikBac.salaryApp.salary;
-
-import pl.MikBac.salaryApp.model.CountryModel;
-import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-
 /**
  * Created by MikBac on 2018
  */
+
+package pl.MikBac.salaryApp.salary;
+
+import org.springframework.stereotype.Service;
+import pl.MikBac.salaryApp.model.CountryModel;
+
+import java.math.BigDecimal;
 
 @Service
 public class Salary {
@@ -18,11 +18,11 @@ public class Salary {
         this.strategy = strategy;
     }
 
-    public BigDecimal getExchangeRate(String countryCode){
-       return strategy.getExchangeRate(countryCode);
+    public BigDecimal getExchangeRate(String countryCode) {
+        return strategy.getExchangeRate(countryCode);
     }
 
-    public BigDecimal calculateSalary(CountryModel countryModel, String valueFromClient){
+    public BigDecimal calculateSalary(CountryModel countryModel, String valueFromClient) {
         return strategy.calculateSalary(countryModel, valueFromClient);
     }
 }

@@ -1,32 +1,27 @@
-package pl.MikBac.salaryApp.spring.service;
-
-import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.repository.CountryRepository;
-import pl.MikBac.salaryApp.salary.Salary;
-import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-
 /**
  * Created by MikBac on 2018
  */
 
+package pl.MikBac.salaryApp.spring.service.impl;
+
+import org.springframework.stereotype.Service;
+import pl.MikBac.salaryApp.model.CountryModel;
+import pl.MikBac.salaryApp.salary.Salary;
+import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
+import pl.MikBac.salaryApp.spring.repository.CountryRepository;
+import pl.MikBac.salaryApp.spring.service.CountryService;
+
+import javax.annotation.Resource;
+import java.math.BigDecimal;
+
 @Service
 public class CountryServiceImpl implements CountryService {
 
+    @Resource
     CountryRepository countryRepository;
 
-
-    @Autowired
-    public CountryServiceImpl(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
-    }
-
-
     @Override
-    public Iterable<CountryModel> findAll() {
+    public Iterable<CountryModel> getAll() {
         return countryRepository.findAll();
     }
 
@@ -41,7 +36,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Boolean existsCountryByCountryCode(String countryCode) {
+    public Boolean isExistsCountryByCountryCode(String countryCode) {
         return countryRepository.existsCountryByCountryCode(countryCode);
     }
 
