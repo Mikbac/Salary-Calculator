@@ -37,12 +37,12 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Boolean isExistsCountryByCountryCode(String countryCode) {
-        return countryRepository.existsCountryByCountryCode(countryCode);
+        return countryRepository.existsCountryByCountryCode(countryCode).orElse(null);
     }
 
     @Override
     public BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient) {
-        CountryModel countryModel = countryRepository.findByCountryCode(countryCode);
+        CountryModel countryModel = countryRepository.findByCountryCode(countryCode).orElse(null);
         return salary.calculateSalary(countryModel, valueFromClient);
     }
 }

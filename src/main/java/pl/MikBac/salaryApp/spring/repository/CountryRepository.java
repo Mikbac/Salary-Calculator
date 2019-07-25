@@ -8,9 +8,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import pl.MikBac.salaryApp.model.CountryModel;
 
+import java.util.Optional;
+
 public interface CountryRepository extends CrudRepository<CountryModel, Integer>, PagingAndSortingRepository<CountryModel, Integer> {
 
-    CountryModel findByCountryCode(String countryCode);
+    Optional<CountryModel> findByCountryCode(String countryCode);
 
-    boolean existsCountryByCountryCode(String countryCode);
+    Optional<Boolean> existsCountryByCountryCode(String countryCode);
 }
