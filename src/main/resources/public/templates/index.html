@@ -6,6 +6,8 @@ Created by MikBac on 2018
 <html>
 <head>
 
+    <meta charset="UTF-8">
+
     <title>Salary calculator</title>
 
     <link rel="stylesheet/less" type="text/css" href="static/css/styles.less"/>
@@ -22,19 +24,18 @@ Created by MikBac on 2018
     <div class="calculate" , ng-controller="myCtrl">
         <h2>UK</h2>
         <form>GBP: <input type="text" ng-model="value">
-            <button ng-click="myFunc('UK', value)">Calculate</button>
+            <button type="button" class="btn btn-primary" ng-click="myFunc('UK', value)">Calculate</button>
         </form>
 
         <h3>Answer:</h3>
         <p>PLN: {{content}}</p>
 
     </div>
-
 
     <div class="calculate" , ng-controller="myCtrl">
         <h2>DE</h2>
         <form>EUR: <input type="text" ng-model="value">
-            <button ng-click="myFunc('DE', value)">Calculate</button>
+            <button type="button" class="btn btn-primary" ng-click="myFunc('DE', value)">Calculate</button>
         </form>
 
         <h3>Answer:</h3>
@@ -42,11 +43,10 @@ Created by MikBac on 2018
 
     </div>
 
-
     <div class="calculate" , ng-controller="myCtrl">
         <h2>PL</h2>
         <form>PLN: <input type="text" ng-model="value">
-            <button ng-click="myFunc('PL', value)">Calculate</button>
+            <button type="button" class="btn btn-primary" ng-click="myFunc('PL', value)">Calculate</button>
         </form>
 
         <h3>Answer:</h3>
@@ -56,9 +56,7 @@ Created by MikBac on 2018
 </main>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
 <script src="static/js/script.js"></script>
 
 </body>
