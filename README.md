@@ -14,7 +14,7 @@ The application converts salary to PLN.
 http://localhost:8080/swagger-ui.html#/
 ```
 
-* Or add countries to the `import.sql` file before run the application.
+* Or add countries to the `import.sql` file before running the application.
 
 ### Added countries
 
@@ -66,7 +66,7 @@ http://localhost:8080/countryModel
 
 * [JUnit 5](https://junit.org/junit5/)
 
-The server uses the [NBP Web API](http://api.nbp.pl/) . 
+The server uses the [NBP Web API](http://api.nbp.pl/). 
 
 
 ## Client
