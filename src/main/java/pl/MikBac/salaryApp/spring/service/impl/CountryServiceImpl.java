@@ -6,13 +6,10 @@ package pl.MikBac.salaryApp.spring.service.impl;
 
 import org.springframework.stereotype.Service;
 import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.salary.Salary;
-import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
 import pl.MikBac.salaryApp.spring.repository.CountryRepository;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -31,18 +28,13 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void setStrategy(Salary salary, SalaryPl salaryPl) {
-        salary.setStrategy(salaryPl);
-    }
-
-    @Override
     public Boolean isExistsCountryByCountryCode(String countryCode) {
         return countryRepository.existsCountryByCountryCode(countryCode).orElse(null);
     }
 
     @Override
-    public BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient) {
-        CountryModel countryModel = countryRepository.findByCountryCode(countryCode).orElse(null);
-        return salary.calculateSalary(countryModel, valueFromClient);
+    public CountryModel findByCountryCode(final String countryCode) {
+        return countryRepository.findByCountryCode(countryCode).orElse(null);
     }
+
 }

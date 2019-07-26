@@ -12,14 +12,14 @@ import pl.MikBac.salaryApp.exception.InvalidUriException;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.salary.Salary;
 import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
-import pl.MikBac.salaryApp.spring.facade.CountryServiceFacade;
+import pl.MikBac.salaryApp.spring.facade.CountryFacade;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 
 @Component
-public class CountryServiceFacadeImpl implements CountryServiceFacade {
+public class CountryFacadeImpl implements CountryFacade {
 
     @Resource
     private CountryService countryService;
@@ -39,14 +39,14 @@ public class CountryServiceFacadeImpl implements CountryServiceFacade {
     public BigDecimal getSalary(final String countryCode, final String valueFromClient) {
         Salary salary = new Salary();
 
-        countryService.setStrategy(salary, new SalaryPl());
+        setStrategy(salary, new SalaryPl());
 
         if (!countryService.isExistsCountryByCountryCode(countryCode)) {
             throw new InvalidCountryIdException();
         }
         try {
 
-            return countryService.calculateSalary(salary, countryCode, valueFromClient);
+            return calculateSalary(salary, countryCode, valueFromClient);
 
         } catch (NumberFormatException e) {
             throw new InvalidNumberFormatException();
@@ -55,4 +55,16 @@ public class CountryServiceFacadeImpl implements CountryServiceFacade {
         }
 
     }
+
+    @Override
+    public BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient) {
+        CountryModel countryModel = countryService.findByCountryCode(countryCode);
+        return salary.calculateSalary(countryModel, valueFromClient);
+    }
+
+    @Override
+    public void setStrategy(Salary salary, SalaryPl salaryPl) {
+        salary.setStrategy(salaryPl);
+    }
+
 }

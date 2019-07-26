@@ -11,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.MikBac.salaryApp.salary.Salary;
 import pl.MikBac.salaryApp.salary.strategies.SalaryPl;
+import pl.MikBac.salaryApp.spring.facade.CountryFacade;
 
 import java.math.BigDecimal;
 
@@ -19,15 +20,15 @@ import java.math.BigDecimal;
 public class CountryModelServiceTest {
 
     @MockBean
-    CountryService countryService;
+    CountryFacade countryFacade;
 
     @Test
     public void getExchangeRateWhenCountryCodeIsCorrect() throws Exception {
         Salary salary = new Salary();
 
-        countryService.setStrategy(salary, new SalaryPl());
+        countryFacade.setStrategy(salary, new SalaryPl());
 
-        BigDecimal ans = countryService.calculateSalary(salary, "PL", "123");
+        BigDecimal ans = countryFacade.calculateSalary(salary, "PL", "123");
 
         BigDecimal wrong = new BigDecimal(0);
         org.junit.Assert.assertNotSame(wrong, ans);

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import pl.MikBac.salaryApp.spring.facade.CountryServiceFacade;
 import pl.MikBac.salaryApp.model.CountryModel;
+import pl.MikBac.salaryApp.spring.facade.CountryFacade;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -26,26 +26,26 @@ import java.math.BigDecimal;
 public class CountryRestController {
 
     @Resource
-    CountryServiceFacade countryServiceFacade;
+    CountryFacade countryFacade;
 
     @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CountryModel> allCountries() {
 
-        return countryServiceFacade.getAllCountries();
+        return countryFacade.getAllCountries();
 
     }
 
     @RequestMapping(value = "/country", method = RequestMethod.POST)
     public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
 
-        return countryServiceFacade.addCountry(country);
+        return countryFacade.addCountry(country);
 
     }
 
     @RequestMapping(value = "/country/{countryCode}/salary/{valueFromClient}/salaryPLN", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
 
-        return countryServiceFacade.getSalary(countryCode, valueFromClient);
+        return countryFacade.getSalary(countryCode, valueFromClient);
 
     }
 
