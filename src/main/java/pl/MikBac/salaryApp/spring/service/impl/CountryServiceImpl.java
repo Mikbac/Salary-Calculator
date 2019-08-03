@@ -23,12 +23,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public CountryModel saveCountry(CountryModel countryModel) {
+    public CountryModel saveCountry(final CountryModel countryModel) {
         return countryRepository.save(countryModel);
     }
 
     @Override
-    public Boolean isExistsCountryByCountryCode(String countryCode) {
+    public Boolean isExistsCountryByCountryCode(final String countryCode) {
         return countryRepository.existsCountryByCountryCode(countryCode).orElse(null);
     }
 

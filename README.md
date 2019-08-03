@@ -42,7 +42,7 @@ http://localhost:8080/swagger-ui.html#/
 
 Open the browser and hit 
 ```
-http://localhost:8080/countryModel
+http://localhost:8080/
 ```
 
 ## API Endpoint

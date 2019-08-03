@@ -4,7 +4,7 @@
 
 package pl.MikBac.salaryApp.constants;
 
-public interface EntitiesNames {
+public interface EntitiesConstants {
 
     interface Country {
         String TABLE = "Country";

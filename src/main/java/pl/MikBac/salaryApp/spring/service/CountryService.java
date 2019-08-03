@@ -10,10 +10,10 @@ public interface CountryService {
 
     Iterable<CountryModel> getAll();
 
-    CountryModel saveCountry(CountryModel countryModel);
+    CountryModel saveCountry(final CountryModel countryModel);
 
-    Boolean isExistsCountryByCountryCode(String countryCode);
+    Boolean isExistsCountryByCountryCode(final String countryCode);
 
-    CountryModel findByCountryCode(String countryCode);
+    CountryModel findByCountryCode(final String countryCode);
 
 }
