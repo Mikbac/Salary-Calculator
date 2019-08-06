@@ -6,14 +6,16 @@ package pl.MikBac.salaryApp.spring.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.MikBac.salaryApp.constants.WebConstants.Mapping;
 import pl.MikBac.salaryApp.constants.WebConstants.Views;
 
 @Controller
+@RequestMapping(Mapping.ROOT)
 public class CountryController {
 
-    @GetMapping(value = {Mapping.ROOT})
-    public String country() {
-        return Views.MAIN;
+    @GetMapping(value = "")
+    public String get() {
+        return Views.MAIN_PAGE;
     }
 }
