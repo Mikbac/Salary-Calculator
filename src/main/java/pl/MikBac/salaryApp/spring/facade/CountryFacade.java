@@ -15,11 +15,11 @@ public interface CountryFacade {
 
     Iterable<CountryModel> getAllCountries();
 
-    ResponseEntity<CountryModel> addCountry(CountryModel country);
+    ResponseEntity<CountryModel> addCountry(final CountryModel country);
 
-    BigDecimal getSalary(String countryCode, String valueFromClient);
+    BigDecimal getSalary(final String countryCode, final String valueFromClient);
 
-    void setStrategy(Salary salary, SalaryPl salaryPl);
+    void setStrategy(final Salary salary, final SalaryPl salaryPl);
 
-    BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient);
+    BigDecimal calculateSalary(final Salary salary, final String countryCode, final String valueFromClient);
 }

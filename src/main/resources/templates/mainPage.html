@@ -1,71 +1,24 @@
 <!--
 Created by MikBac on 2018
 -->
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-    <meta charset="UTF-8">
-
-    <title>Salary calculator</title>
-
-    <link rel="stylesheet/less" type="text/css" th:href="@{/less/_all.less}"/>
-
+    <th:block th:include="components/others :: meta"/>
+    <title>PLN | Salary calculator</title>
+    <th:block th:include="components/imports :: links"/>
 </head>
-
 <body ng-app="myApp">
-
 <header>
     <h1 th:text="#{main.page.salary.calculator.text}"></h1>
 </header>
-
 <main>
-    <div class="calculate" , ng-controller="myCtrl">
-        <h2 th:text="#{main.page.salary.uk.text}"></h2>
-        <form><span th:text="#{main.page.salary.gbp.text}"></span>:<input type="text" ng-model="value">
-            <button type="button" class="btn btn-primary" ng-click="myFunc('UK', value)"><span
-                    th:text="#{main.page.button.calculate.text}"></span></button>
-        </form>
-
-        <h3><span th:text="#{main.page.answer.text}"></span>:</h3>
-        <p><span th:text="#{main.page.answer.pln.text}"></span>: {{content}}</p>
-
-    </div>
-
-    <div class="calculate" , ng-controller="myCtrl">
-        <h2 th:text="#{main.page.salary.de.text}"></h2>
-        <form><span th:text="#{main.page.salary.eur.text}"></span>: <input type="text" ng-model="value">
-            <button type="button" class="btn btn-primary" ng-click="myFunc('DE', value)"><span
-                    th:text="#{main.page.button.calculate.text}"></button>
-        </form>
-
-        <h3><span th:text="#{main.page.answer.text}"></span>:</h3>
-        <p><span th:text="#{main.page.answer.pln.text}"></span>: {{content}}</p>
-
-    </div>
-
-    <div class="calculate" , ng-controller="myCtrl">
-        <h2 th:text="#{main.page.salary.pl.text}"></h2>
-        <form><span th:text="#{main.page.salary.pln.text}"></span>:<input type="text" ng-model="value">
-            <button type="button" class="btn btn-primary" ng-click="myFunc('PL', value)"><span
-                    th:text="#{main.page.button.calculate.text}"></button>
-        </form>
-
-        <h3><span th:text="#{main.page.answer.text}"></span>:</h3>
-        <p><span th:text="#{main.page.answer.pln.text}"></span>: {{content}}</p>
-
-    </div>
+    <th:block th:include="components/calculations :: salary-UK"/>
+    <th:block th:include="components/calculations :: salary-DE"/>
+    <th:block th:include="components/calculations :: salary-PL"/>
 </main>
-
 <footer>
-
 </footer>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script th:src="@{/js/script.js}"></script>
-
+<th:block th:include="components/imports :: scripts"/>
 </body>
-
 </html>

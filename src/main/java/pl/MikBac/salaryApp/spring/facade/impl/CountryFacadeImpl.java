@@ -30,7 +30,7 @@ public class CountryFacadeImpl implements CountryFacade {
     }
 
     @Override
-    public ResponseEntity<CountryModel> addCountry(CountryModel country) {
+    public ResponseEntity<CountryModel> addCountry(final CountryModel country) {
         countryService.saveCountry(country);
         return ResponseEntity.ok().body(country);
     }
@@ -57,13 +57,13 @@ public class CountryFacadeImpl implements CountryFacade {
     }
 
     @Override
-    public BigDecimal calculateSalary(Salary salary, String countryCode, String valueFromClient) {
+    public BigDecimal calculateSalary(final Salary salary, final String countryCode, final String valueFromClient) {
         CountryModel countryModel = countryService.findByCountryCode(countryCode);
         return salary.calculateSalary(countryModel, valueFromClient);
     }
 
     @Override
-    public void setStrategy(Salary salary, SalaryPl salaryPl) {
+    public void setStrategy(final Salary salary, final SalaryPl salaryPl) {
         salary.setStrategy(salaryPl);
     }
 
