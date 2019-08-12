@@ -8,8 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -24,9 +23,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(scanBasePackages = {"pl.MikBac.salaryApp.spring"})
 @EntityScan(basePackages = {"pl.MikBac.salaryApp.model"})
 @EnableSwagger2
+@Log4j2
 public class WebApplication extends SpringBootServletInitializer {
-
-    private static final Logger logger = LogManager.getLogger(WebApplication.class);
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
@@ -47,7 +45,7 @@ public class WebApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        logger.info("Starting Spring boot application");
+        log.info("Starting Spring boot application");
         SpringApplication.run(WebApplication.class, args);
     }
 

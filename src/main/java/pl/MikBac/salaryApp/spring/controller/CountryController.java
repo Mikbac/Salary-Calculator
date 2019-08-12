@@ -4,6 +4,7 @@
 
 package pl.MikBac.salaryApp.spring.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +26,7 @@ import java.math.BigDecimal;
 @CrossOrigin
 @RestController
 @RequestMapping(Mapping.SALARY_CALCULATOR)
+@Log4j2
 public class CountryController {
 
     @Resource
@@ -32,21 +34,21 @@ public class CountryController {
 
     @GetMapping(value = Mapping.COUNTRIES, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CountryModel> allCountries() {
-
+        log.info("Getting all countries");
         return countryFacade.getAllCountries();
 
     }
 
     @PostMapping(value = Mapping.COUNTRY)
     public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
-
+        log.info("Adding new country");
         return countryFacade.addCountry(country);
 
     }
 
     @GetMapping(value = Mapping.CALCULATOR, produces = MediaType.APPLICATION_JSON_VALUE)
     public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
-
+        log.info("Counting salary");
         return countryFacade.getSalary(countryCode, valueFromClient);
 
     }
