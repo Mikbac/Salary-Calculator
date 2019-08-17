@@ -73,13 +73,13 @@ http://localhost:8080/
 
 * [JUnit 5](https://junit.org/junit5/)
 
-The server uses the [NBP Web API](http://api.nbp.pl/). 
-
 * [HTML]()
 
 * [CSS]()
 
 * [AngularJS](https://angularjs.org/) 
+
+The application uses the [NBP Web API](http://api.nbp.pl/). 
 
 ## Example of features
 
