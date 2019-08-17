@@ -12,7 +12,6 @@ public interface EntitiesConstants {
         String TAX = "tax";
         String FIXED_COSTS = "fixedCosts";
         String CURRENCY_CODE = "currencyCode";
-
     }
 
 }

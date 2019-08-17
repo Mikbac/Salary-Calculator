@@ -6,14 +6,14 @@ package pl.MikBac.salaryApp.spring.service;
 
 import pl.MikBac.salaryApp.model.CountryModel;
 
+import java.util.Optional;
+
 public interface CountryService {
 
     Iterable<CountryModel> getAll();
 
     CountryModel saveCountry(final CountryModel countryModel);
 
-    Boolean isExistsCountryByCountryCode(final String countryCode);
-
-    CountryModel findByCountryCode(final String countryCode);
+    Optional<CountryModel> findByCountryCode(final String countryCode);
 
 }

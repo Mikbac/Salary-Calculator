@@ -14,5 +14,4 @@ public interface CountryRepository extends CrudRepository<CountryModel, Integer>
 
     Optional<CountryModel> findByCountryCode(String countryCode);
 
-    Optional<Boolean> existsCountryByCountryCode(String countryCode);
 }

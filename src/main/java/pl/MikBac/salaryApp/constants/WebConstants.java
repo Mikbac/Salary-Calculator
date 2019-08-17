@@ -11,13 +11,11 @@ public interface WebConstants {
         String SALARY_CALCULATOR = ROOT + "salary-calculator";
         String COUNTRY = ROOT + "country";
         String COUNTRIES = ROOT + "country";
-        String CALCULATOR = ROOT + "country/{countryCode}/salary/{valueFromClient}/salaryPLN";
-
+        String CALCULATOR = ROOT + "country/{countryCode}/salary/{salaryFromClient}/salaryPLN";
     }
 
     interface Views {
         String MAIN_PAGE = "mainPage";
-
     }
 
     interface AntPatterns {

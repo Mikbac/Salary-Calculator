@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+@Log4j2
 @SpringBootApplication(scanBasePackages = {"pl.MikBac.salaryApp.spring"})
 @EntityScan(basePackages = {"pl.MikBac.salaryApp.model"})
-@Log4j2
 public class WebApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

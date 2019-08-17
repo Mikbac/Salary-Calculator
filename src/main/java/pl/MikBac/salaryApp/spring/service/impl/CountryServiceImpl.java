@@ -10,6 +10,7 @@ import pl.MikBac.salaryApp.spring.repository.CountryRepository;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -28,13 +29,8 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Boolean isExistsCountryByCountryCode(final String countryCode) {
-        return countryRepository.existsCountryByCountryCode(countryCode).orElse(null);
-    }
-
-    @Override
-    public CountryModel findByCountryCode(final String countryCode) {
-        return countryRepository.findByCountryCode(countryCode).orElse(null);
+    public Optional<CountryModel> findByCountryCode(final String countryCode) {
+        return countryRepository.findByCountryCode(countryCode);
     }
 
 }

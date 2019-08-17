@@ -23,10 +23,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Log4j2
 @CrossOrigin
 @RestController
 @RequestMapping(Mapping.SALARY_CALCULATOR)
-@Log4j2
 public class CountryController {
 
     @Resource
@@ -36,21 +36,18 @@ public class CountryController {
     public Iterable<CountryModel> allCountries() {
         log.info("Getting all countries");
         return countryFacade.getAllCountries();
-
     }
 
     @PostMapping(value = Mapping.COUNTRY)
     public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
-        log.info("Adding new country");
+        log.info("Adding new country: " + country);
         return countryFacade.addCountry(country);
-
     }
 
     @GetMapping(value = Mapping.CALCULATOR, produces = MediaType.APPLICATION_JSON_VALUE)
-    public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String valueFromClient) {
-        log.info("Counting salary");
-        return countryFacade.getSalary(countryCode, valueFromClient);
-
+    public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String salaryFromClient) {
+        log.info("Counting salary for country code: " + countryCode + " and salary from client: " + salaryFromClient);
+        return countryFacade.getSalary(countryCode, salaryFromClient);
     }
 
 }

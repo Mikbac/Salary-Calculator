@@ -2,7 +2,7 @@
  * Created by MikBac on 2018
  */
 
-package pl.MikBac.salaryApp.salary;
+package pl.MikBac.salaryApp.spring.facade.impl.salary;
 
 import pl.MikBac.salaryApp.model.CountryModel;
 
