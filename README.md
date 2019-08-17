@@ -4,9 +4,17 @@
 
 The application converts salary to PLN.
 
+# Table of contents
+* [Adding the new country](#adding-the-new-country)
+* [Added countries](#added-countries)
+* [Prerequisites](#prerequisites)
+* [Installing](#installing)
+* [API Endpoint](#api-endpoint)
+* [Built with](#built-with)
+
 ## Getting Started
 
-### Adding a new countryModel
+### Adding the new country
 
 * You can use POST in swagger.
 
@@ -18,9 +26,9 @@ http://localhost:8080/swagger-ui.html#/
 
 ### Added countries
 
-* UK
-* DE
-* PL
+* United Kingdom - ```UK```
+* Germany - ```DE```
+* Poland - ```PL```
 
 
 ### Prerequisites
@@ -52,9 +60,8 @@ http://localhost:8080/
 |```POST /salary-calculator/countryModel```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
 |```GET /salary-calculator/countryModel/{countryCode}/salary/{salaryFromClient}/salaryPLN```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
 
-## Server
 
-### Built With
+## Built with
 
 * [JDK 8](https://www.oracle.com/technetwork/java/index.html)
 
@@ -67,11 +74,6 @@ http://localhost:8080/
 * [JUnit 5](https://junit.org/junit5/)
 
 The server uses the [NBP Web API](http://api.nbp.pl/). 
-
-
-## Client
-
-### Built With
 
 * [HTML]()
 
