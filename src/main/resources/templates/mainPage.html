@@ -13,9 +13,17 @@ Created by MikBac on 2018
     <h1 th:text="#{main.page.salary.calculator.text}"></h1>
 </header>
 <main>
-    <th:block th:include="components/calculations :: salary-UK"/>
-    <th:block th:include="components/calculations :: salary-DE"/>
-    <th:block th:include="components/calculations :: salary-PL"/>
+    <div class="row">
+        <div class="col-md-4">
+            <th:block th:include="components/calculations :: salary-UK"/>
+        </div>
+        <div class="col-md-4">
+            <th:block th:include="components/calculations :: salary-DE"/>
+        </div>
+        <div class="col-md-4">
+            <th:block th:include="components/calculations :: salary-PL"/>
+        </div>
+    </div>
 </main>
 <footer>
 </footer>
