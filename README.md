@@ -69,6 +69,8 @@ http://localhost:8080/
 
 * [Maven](https://maven.apache.org/)
 
+* [Log4j 2](https://logging.apache.org/log4j/2.x/)
+
 * [HSQLDB](http://hsqldb.org/)
 
 * [JUnit 5](https://junit.org/junit5/)
