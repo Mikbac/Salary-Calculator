@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class InvalidApiAddressException extends RuntimeException {
-    public InvalidApiAddressException(String message) {
-        super(message);
+    public InvalidApiAddressException(String url) {
+        super("Invalid API address for url: " + url);
     }
 }

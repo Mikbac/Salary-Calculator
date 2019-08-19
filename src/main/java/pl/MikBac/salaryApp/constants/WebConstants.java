@@ -12,10 +12,12 @@ public interface WebConstants {
         String COUNTRY = ROOT + "country";
         String COUNTRIES = ROOT + "country";
         String CALCULATOR = ROOT + "country/{countryCode}/salary/{salaryFromClient}/salaryPLN";
+        String ERROR_PAGE = ROOT + "error";
     }
 
     interface Views {
         String MAIN_PAGE = "mainPage";
+        String ERROR_PAGE = "errorPage";
     }
 
     interface AntPatterns {

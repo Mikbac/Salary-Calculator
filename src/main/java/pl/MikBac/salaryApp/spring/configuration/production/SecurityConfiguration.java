@@ -36,7 +36,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers(AntPatterns.RESOURCES, AntPatterns.ASSETS, AntPatterns.CSS, AntPatterns.LESS,
                         AntPatterns.JS, AntPatterns.IMAGES, AntPatterns.FONTS, AntPatterns.JSON);
-
     }
 
 }

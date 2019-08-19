@@ -38,8 +38,8 @@ public class SalaryPl implements SalaryStrategy {
             BigDecimal mid = exchangeRate.getRates()[0].getMid();
             return mid;
         } catch (HttpClientErrorException e) {
-            log.error("Invalid API address for url: " + url);
-            throw new InvalidApiAddressException("Invalid API address for url: " + url);
+            log.error("Invalid API address for url: {}", () -> url);
+            throw new InvalidApiAddressException(url);
         }
     }
 
@@ -59,8 +59,8 @@ public class SalaryPl implements SalaryStrategy {
             BigDecimal salaryPLN = exchangePLN.multiply(salary);
             return salaryPLN.setScale(2, RoundingMode.CEILING);
         } catch (NumberFormatException e) {
-            log.error("Invalid value from client for: " + salaryFromClient);
-            throw new InvalidSalaryFromClientException("Invalid value from client for: " + salaryFromClient);
+            log.error("Invalid value from client for: {}", () -> salaryFromClient);
+            throw new InvalidSalaryFromClientException(salaryFromClient);
         }
     }
 

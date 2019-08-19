@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 @CrossOrigin
 @RestController
 @RequestMapping(Mapping.SALARY_CALCULATOR)
-public class CountryController {
+public class CountryPageController {
 
     @Resource
     CountryFacade countryFacade;
@@ -40,13 +40,13 @@ public class CountryController {
 
     @PostMapping(value = Mapping.COUNTRY)
     public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
-        log.info("Adding new country: " + country);
+        log.info("Adding new country: {}", () -> country);
         return countryFacade.addCountry(country);
     }
 
-    @GetMapping(value = Mapping.CALCULATOR, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Mapping.CALCULATOR, produces = MediaType.ALL_VALUE)
     public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String salaryFromClient) {
-        log.info("Counting salary for country code: " + countryCode + " and salary from client: " + salaryFromClient);
+        log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
         return countryFacade.getSalary(countryCode, salaryFromClient);
     }
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class InvalidSalaryFromClientException extends RuntimeException {
-    public InvalidSalaryFromClientException(String message) {
-        super(message);
+    public InvalidSalaryFromClientException(String salaryFromClient) {
+        super("Invalid value from client for: " + salaryFromClient);
     }
 }

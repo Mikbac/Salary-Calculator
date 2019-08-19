@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.MikBac.salaryApp.spring.controller.CountryController;
+import pl.MikBac.salaryApp.spring.controller.CountryPageController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,11 +18,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WebApplicationTest {
 
     @Autowired
-    CountryController countryController;
+    CountryPageController countryPageController;
 
     @Test
     public void contextLoads() {
-        assertThat(countryController).isNotNull();
+        assertThat(countryPageController).isNotNull();
     }
 
 }
