@@ -67,6 +67,8 @@ http://localhost:8080/
 
 * [Spring Boot](https://spring.io/projects/spring-boot) 
 
+* [Thymeleaf](https://www.thymeleaf.org/) 
+
 * [Maven](https://maven.apache.org/)
 
 * [Log4j 2](https://logging.apache.org/log4j/2.x/)
