@@ -10,12 +10,15 @@ import org.springframework.stereotype.Component;
 import pl.MikBac.salaryApp.exception.CountryNotFoundException;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
+import pl.MikBac.salaryApp.spring.facade.impl.data.CountryData;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.Salary;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.SalaryPl;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Component
@@ -25,8 +28,16 @@ public class CountryFacadeImpl implements CountryFacade {
     private CountryService countryService;
 
     @Override
-    public Iterable<CountryModel> getAllCountries() {
-        return countryService.getAll();
+    public List<CountryData> getAllCountries() {
+        List<CountryModel> countries = countryService.getAll();
+        return countries
+                .stream()
+                .map(c -> CountryData
+                        .prepare()
+                        .withCountryCode(c.getCountryCode())
+                        .withCurrencyCode(c.getCurrencyCode())
+                        .build())
+                .collect(Collectors.toList());
     }
 
     @Override

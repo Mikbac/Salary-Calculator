@@ -10,6 +10,7 @@ import pl.MikBac.salaryApp.spring.repository.CountryRepository;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,7 +20,7 @@ public class CountryServiceImpl implements CountryService {
     CountryRepository countryRepository;
 
     @Override
-    public Iterable<CountryModel> getAll() {
+    public List<CountryModel> getAll() {
         return countryRepository.findAll();
     }
 

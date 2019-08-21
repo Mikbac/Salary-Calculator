@@ -14,7 +14,6 @@ import pl.MikBac.salaryApp.constants.WebConstants.Views;
 import pl.MikBac.salaryApp.spring.facade.HomePageFacade;
 
 import javax.annotation.Resource;
-import java.util.Locale;
 
 @Controller
 @RequestMapping(Mapping.ROOT)
@@ -24,8 +23,7 @@ public class HomePageController {
     private HomePageFacade homePageFacade;
 
     @GetMapping(value = "")
-    public String get(final Locale locale, final Model model) {
-        model.addAttribute(HomePage.LANGUAGE, locale.getLanguage());
+    public String get(final Model model) {
         model.addAttribute(HomePage.COUNTRIES, homePageFacade.getCoutries());
         return Views.MAIN_PAGE;
     }

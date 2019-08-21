@@ -8,9 +8,12 @@ public interface AttributeConstants {
 
     interface ModelAttributes {
 
+        interface AllPages {
+            String LANGUAGE = "language";
+        }
+
         interface HomePage {
             String COUNTRIES = "countries";
-            String LANGUAGE = "language";
         }
     }
 }

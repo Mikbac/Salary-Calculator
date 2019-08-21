@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import pl.MikBac.salaryApp.spring.interceptor.CountryInterceptor;
 
 import java.util.Locale;
 
@@ -20,7 +21,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.UK);
+        slr.setDefaultLocale(Locale.getDefault());
         return slr;
     }
 
@@ -31,9 +32,15 @@ public class MvcConfig implements WebMvcConfigurer {
         return lci;
     }
 
+    @Bean
+    public CountryInterceptor countryInterceptor() {
+        return new CountryInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
+        registry.addInterceptor(countryInterceptor());
     }
 }
 

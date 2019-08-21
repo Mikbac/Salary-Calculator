@@ -6,14 +6,16 @@ package pl.MikBac.salaryApp.spring.facade;
 
 import org.springframework.http.ResponseEntity;
 import pl.MikBac.salaryApp.model.CountryModel;
+import pl.MikBac.salaryApp.spring.facade.impl.data.CountryData;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.Salary;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.SalaryPl;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public interface CountryFacade {
 
-    Iterable<CountryModel> getAllCountries();
+    List<CountryData> getAllCountries();
 
     ResponseEntity<CountryModel> addCountry(final CountryModel country);
 
