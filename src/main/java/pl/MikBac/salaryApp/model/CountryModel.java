@@ -14,6 +14,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -27,15 +28,19 @@ import java.util.Objects;
 public class CountryModel implements Serializable {
 
     @Id
+    @NotNull
     @Column(name = EntitiesConstants.Country.COUNTRY_CODE)
     private String countryCode;
 
+    @NotNull
     @Column(name = EntitiesConstants.Country.TAX)
     private BigDecimal tax;
 
+    @NotNull
     @Column(name = EntitiesConstants.Country.FIXED_COSTS)
     private BigDecimal fixedCosts;
 
+    @NotNull
     @Column(name = EntitiesConstants.Country.CURRENCY_CODE)
     private String currencyCode;
 
