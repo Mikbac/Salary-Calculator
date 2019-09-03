@@ -1,0 +1,19 @@
+<!--
+Created by MikBac on 3.09.2019
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="language">
+    <h3><span th:text="#{main.page.language.select.text}"></span></h3>
+    <div class="col-md-1">
+        <form method="post" th:action="@{'/?lang=en'}">
+            <button class="btn btn-secondary">English</button>
+        </form>
+    </div>
+    <div class="col-md-1">
+        <form method="post" th:action="@{'/?lang=pl'}">
+            <button class="btn btn-secondary">Polski</button>
+        </form>
+    </div>
+</th:block>
+</html>
