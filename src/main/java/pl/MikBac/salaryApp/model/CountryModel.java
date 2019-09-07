@@ -5,14 +5,14 @@
 package pl.MikBac.salaryApp.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.MikBac.salaryApp.constants.EntitiesConstants;
+import pl.MikBac.salaryApp.constants.EntityConstants.Country;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -23,25 +23,25 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
-@Table(name = EntitiesConstants.Country.TABLE)
-public class CountryModel implements Serializable {
+@Table(name = Country.TABLE)
+public class CountryModel extends Model implements Serializable {
 
-    @Id
     @NotNull
-    @Column(name = EntitiesConstants.Country.COUNTRY_CODE)
+    @Column(name = Country.COUNTRY_CODE)
     private String countryCode;
 
     @NotNull
-    @Column(name = EntitiesConstants.Country.TAX)
+    @Column(name = Country.TAX)
     private BigDecimal tax;
 
     @NotNull
-    @Column(name = EntitiesConstants.Country.FIXED_COSTS)
+    @Column(name = Country.FIXED_COSTS)
     private BigDecimal fixedCosts;
 
     @NotNull
-    @Column(name = EntitiesConstants.Country.CURRENCY_CODE)
+    @Column(name = Country.CURRENCY_CODE)
     private String currencyCode;
 
     @Override

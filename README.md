@@ -58,7 +58,7 @@ http://localhost:8080/
 |---|---|---|
 |```GET /salary-calculator/countries```|Get all of the countries available for the app.||
 |```POST /salary-calculator/country```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
-|```GET /salary-calculator/country/{countryCode}/salary/{salaryFromClient}/salaryPLN```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
+|```GET /salary-calculator/salary/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
 
 
 ## Built with

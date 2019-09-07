@@ -5,8 +5,8 @@
 package pl.MikBac.salaryApp.spring.facade;
 
 import org.springframework.http.ResponseEntity;
+import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.spring.facade.impl.data.CountryData;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.Salary;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.SalaryPl;
 

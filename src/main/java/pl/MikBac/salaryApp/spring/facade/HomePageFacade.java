@@ -8,6 +8,6 @@ import pl.MikBac.salaryApp.model.CountryModel;
 
 public interface HomePageFacade {
 
-    Iterable<CountryModel> getCoutries();
+    Iterable<CountryModel> getCountries();
 
 }

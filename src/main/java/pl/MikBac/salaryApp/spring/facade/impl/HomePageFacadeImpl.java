@@ -18,7 +18,7 @@ public class HomePageFacadeImpl implements HomePageFacade {
     private CountryService countryService;
 
     @Override
-    public Iterable<CountryModel> getCoutries() {
+    public Iterable<CountryModel> getCountries() {
         return countryService.getAll();
     }
 }

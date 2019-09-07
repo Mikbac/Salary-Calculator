@@ -7,10 +7,11 @@ package pl.MikBac.salaryApp.spring.facade.impl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.exception.CountryNotFoundException;
 import pl.MikBac.salaryApp.model.CountryModel;
+import pl.MikBac.salaryApp.spring.converter.Converter;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
-import pl.MikBac.salaryApp.spring.facade.impl.data.CountryData;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.Salary;
 import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.SalaryPl;
 import pl.MikBac.salaryApp.spring.service.CountryService;
@@ -26,17 +27,13 @@ public class CountryFacadeImpl implements CountryFacade {
 
     @Resource
     private CountryService countryService;
+    @Resource
+    private Converter<CountryData, CountryModel> countryConverter;
 
     @Override
     public List<CountryData> getAllCountries() {
-        List<CountryModel> countries = countryService.getAll();
-        return countries
-                .stream()
-                .map(c -> CountryData
-                        .prepare()
-                        .withCountryCode(c.getCountryCode())
-                        .withCurrencyCode(c.getCurrencyCode())
-                        .build())
+        return countryService.getAll().stream()
+                .map(c -> countryConverter.convert(c))
                 .collect(Collectors.toList());
     }
 

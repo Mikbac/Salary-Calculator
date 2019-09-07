@@ -11,7 +11,7 @@ public interface WebConstants {
         String SALARY_CALCULATOR = ROOT + "salary-calculator";
         String COUNTRY = ROOT + "country";
         String COUNTRIES = ROOT + "country";
-        String CALCULATOR = ROOT + "country/{countryCode}/salary/{salaryFromClient}/salaryPLN";
+        String CALCULATOR = ROOT + "salary/pln";
         String ERROR_PAGE = ROOT + "error";
     }
 

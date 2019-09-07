@@ -1,0 +1,24 @@
+/**
+ * Created by MikBac on 07.09.2019
+ */
+
+package pl.MikBac.salaryApp.data.impl;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import pl.MikBac.salaryApp.data.Data;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CountryData implements Data {
+
+    private String countryCode;
+    private String currencyCode;
+
+}

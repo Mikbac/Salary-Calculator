@@ -9,15 +9,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.MikBac.salaryApp.constants.WebConstants.Mapping;
+import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
-import pl.MikBac.salaryApp.spring.facade.impl.data.CountryData;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -46,8 +46,8 @@ public class CountryPageController {
         return countryFacade.addCountry(country);
     }
 
-    @GetMapping(value = Mapping.CALCULATOR, produces = MediaType.ALL_VALUE)
-    public BigDecimal getSalary(@PathVariable String countryCode, @PathVariable String salaryFromClient) {
+    @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public BigDecimal getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
         return countryFacade.getSalary(countryCode, salaryFromClient);
     }
