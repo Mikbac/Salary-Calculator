@@ -7,12 +7,12 @@ Created by MikBac on 3.09.2019
     <h3><span th:text="#{main.page.language.select.text}"></span></h3>
     <div class="col-12 col-md-1 m-1 mr-2">
         <form method="post" th:action="@{'/?lang=en'}">
-            <button class="btn btn-secondary">English</button>
+            <button class="btn btn-secondary"><span th:text="#{main.page.language.english.text}"></span></button>
         </form>
     </div>
     <div class="col-12 col-md-1 m-1 mr-2">
         <form method="post" th:action="@{'/?lang=pl'}">
-            <button class="btn btn-secondary">Polski</button>
+            <button class="btn btn-secondary"><span th:text="#{main.page.language.polish.text}"></span></button>
         </form>
     </div>
 </th:block>

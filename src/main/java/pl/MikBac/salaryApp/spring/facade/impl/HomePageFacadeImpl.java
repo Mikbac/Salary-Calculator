@@ -10,6 +10,7 @@ import pl.MikBac.salaryApp.spring.facade.HomePageFacade;
 import pl.MikBac.salaryApp.spring.service.CountryService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Component
 public class HomePageFacadeImpl implements HomePageFacade {
@@ -18,7 +19,8 @@ public class HomePageFacadeImpl implements HomePageFacade {
     private CountryService countryService;
 
     @Override
-    public Iterable<CountryModel> getCountries() {
+    public List<CountryModel> getCountries() {
         return countryService.getAll();
     }
+
 }

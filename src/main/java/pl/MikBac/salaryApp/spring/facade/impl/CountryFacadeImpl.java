@@ -46,9 +46,8 @@ public class CountryFacadeImpl implements CountryFacade {
 
     @Override
     public BigDecimal calculateSalary(final String countryCode, final String valueFromClient) {
-        CountryModel country = countryService.findByCountryCode(countryCode)
-                .orElseThrow(() -> new CountryNotFoundException(countryCode));
-        return salaryService.getSalaryPLN(country, valueFromClient);
+        return salaryService.getSalaryPLN(countryService.findByCountryCode(countryCode)
+                .orElseThrow(() -> new CountryNotFoundException(countryCode)), valueFromClient);
     }
 
 }

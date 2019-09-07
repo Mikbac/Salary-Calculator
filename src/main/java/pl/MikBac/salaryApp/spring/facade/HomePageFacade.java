@@ -6,8 +6,10 @@ package pl.MikBac.salaryApp.spring.facade;
 
 import pl.MikBac.salaryApp.model.CountryModel;
 
+import java.util.List;
+
 public interface HomePageFacade {
 
-    Iterable<CountryModel> getCountries();
+    List<CountryModel> getCountries();
 
 }

@@ -2,7 +2,7 @@
  * Created by MikBac on 17.08.2019
  */
 
-package pl.MikBac.salaryApp.spring.repository.salary.impl.strategies.address;
+package pl.MikBac.salaryApp.spring.repository.impl.address;
 
 public enum Address {
 
