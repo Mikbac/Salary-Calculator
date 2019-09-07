@@ -30,7 +30,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Optional<CountryModel> findByCountryCode(final String countryCode) {
+    public Optional<CountryModel> getCountryByCode(final String countryCode) {
         return countryRepository.findByCountryCode(countryCode);
     }
 

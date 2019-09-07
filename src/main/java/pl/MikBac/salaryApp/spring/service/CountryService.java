@@ -15,6 +15,6 @@ public interface CountryService {
 
     CountryModel saveCountry(final CountryModel countryModel);
 
-    Optional<CountryModel> findByCountryCode(final String countryCode);
+    Optional<CountryModel> getCountryByCode(final String countryCode);
 
 }
