@@ -12,9 +12,8 @@ import pl.MikBac.salaryApp.exception.CountryNotFoundException;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.converter.Converter;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
-import pl.MikBac.salaryApp.spring.facade.impl.salary.Salary;
-import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.SalaryPl;
 import pl.MikBac.salaryApp.spring.service.CountryService;
+import pl.MikBac.salaryApp.spring.service.SalaryService;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -27,6 +26,8 @@ public class CountryFacadeImpl implements CountryFacade {
 
     @Resource
     private CountryService countryService;
+    @Resource
+    private SalaryService salaryService;
     @Resource
     private Converter<CountryData, CountryModel> countryConverter;
 
@@ -44,22 +45,10 @@ public class CountryFacadeImpl implements CountryFacade {
     }
 
     @Override
-    public BigDecimal getSalary(final String countryCode, final String valueFromClient) {
-        Salary salary = new Salary();
-        setStrategy(salary, new SalaryPl());
-        return calculateSalary(salary, countryCode, valueFromClient);
-    }
-
-    @Override
-    public BigDecimal calculateSalary(final Salary salary, final String countryCode, final String valueFromClient) {
+    public BigDecimal calculateSalary(final String countryCode, final String valueFromClient) {
         CountryModel country = countryService.findByCountryCode(countryCode)
                 .orElseThrow(() -> new CountryNotFoundException(countryCode));
-        return salary.calculateSalary(country, valueFromClient);
-    }
-
-    @Override
-    public void setStrategy(final Salary salary, final SalaryPl salaryPl) {
-        salary.setStrategy(salaryPl);
+        return salaryService.getSalaryPLN(country, valueFromClient);
     }
 
 }

@@ -2,7 +2,7 @@
  * Created by MikBac on 2018
  */
 
-package pl.MikBac.salaryApp.spring.facade.impl.salary.strategies;
+package pl.MikBac.salaryApp.spring.repository.salary.impl.strategies;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.client.HttpClientErrorException;
@@ -10,9 +10,9 @@ import org.springframework.web.client.RestTemplate;
 import pl.MikBac.salaryApp.exception.InvalidApiAddressException;
 import pl.MikBac.salaryApp.exception.InvalidSalaryFromClientException;
 import pl.MikBac.salaryApp.model.CountryModel;
-import pl.MikBac.salaryApp.spring.facade.impl.salary.SalaryStrategy;
-import pl.MikBac.salaryApp.spring.facade.impl.salary.nbpModel.ExchangeRate;
-import pl.MikBac.salaryApp.spring.facade.impl.salary.strategies.address.Address;
+import pl.MikBac.salaryApp.spring.repository.salary.SalaryStrategy;
+import pl.MikBac.salaryApp.spring.repository.salary.impl.nbpModel.ExchangeRate;
+import pl.MikBac.salaryApp.spring.repository.salary.impl.strategies.address.Address;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -23,11 +23,11 @@ public class SalaryPl implements SalaryStrategy {
     public SalaryPl() {
     }
 
-    private String getUrl(String currencyCode) {
+    private String getUrl(final String currencyCode) {
         return Address.NBP.getUrl() + "/api/exchangerates/rates/A/" + currencyCode + "/?format=json";
     }
 
-    public BigDecimal getExchangeRate(String currencyCode) {
+    public BigDecimal getExchangeRate(final String currencyCode) {
         String url = getUrl(currencyCode);
         if (currencyCode.equalsIgnoreCase("PLN")) {
             return BigDecimal.valueOf(1);
@@ -43,11 +43,11 @@ public class SalaryPl implements SalaryStrategy {
         }
     }
 
-    private BigDecimal getBigDecimalFromString(String number) {
+    private BigDecimal getBigDecimalFromString(final String number) {
         return new BigDecimal(number);
     }
 
-    public BigDecimal calculateSalary(CountryModel countryModel, String salaryFromClient) {
+    public BigDecimal calculateSalary(final CountryModel countryModel, final String salaryFromClient) {
         try {
             BigDecimal valueOfMoney = getBigDecimalFromString(salaryFromClient);
             BigDecimal fixedCosts = countryModel.getFixedCosts();

@@ -2,17 +2,15 @@
  * Created by MikBac on 2018
  */
 
-package pl.MikBac.salaryApp.spring.facade.impl.salary.nbpModel;
+package pl.MikBac.salaryApp.spring.repository.salary.impl.nbpModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.math.BigDecimal;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Rate {
+public class ExchangeRate {
 
-    private BigDecimal mid;
+    private Rate[] rates;
 
 }

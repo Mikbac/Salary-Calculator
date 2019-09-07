@@ -49,7 +49,7 @@ public class CountryPageController {
     @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public BigDecimal getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
-        return countryFacade.getSalary(countryCode, salaryFromClient);
+        return countryFacade.calculateSalary(countryCode, salaryFromClient);
     }
 
 }
