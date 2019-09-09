@@ -25,8 +25,8 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public CountryModel saveCountry(final CountryModel countryModel) {
-        return countryRepository.save(countryModel);
+    public void saveCountry(final CountryModel countryModel) {
+        countryRepository.save(countryModel);
     }
 
     @Override

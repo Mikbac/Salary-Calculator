@@ -13,7 +13,7 @@ public interface CountryService {
 
     List<CountryModel> getAll();
 
-    CountryModel saveCountry(final CountryModel countryModel);
+    void saveCountry(final CountryModel country);
 
     Optional<CountryModel> getCountryByCode(final String countryCode);
 
