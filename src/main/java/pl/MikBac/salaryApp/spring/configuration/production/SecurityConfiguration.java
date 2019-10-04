@@ -11,10 +11,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import pl.MikBac.salaryApp.constants.ConfigurationConstants.Profiles;
 import pl.MikBac.salaryApp.constants.WebConstants.AntPatterns;
 
 @Configuration
-@Profile("production")
+@Profile(Profiles.PRODUCTION)
 @EnableWebSecurity(debug = false)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
