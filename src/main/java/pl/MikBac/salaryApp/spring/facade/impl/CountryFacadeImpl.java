@@ -6,7 +6,7 @@ package pl.MikBac.salaryApp.spring.facade.impl;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.exception.CountryNotFoundException;
 import pl.MikBac.salaryApp.model.CountryModel;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Log4j2
-@Component
+@Service
 public class CountryFacadeImpl implements CountryFacade {
 
     @Resource

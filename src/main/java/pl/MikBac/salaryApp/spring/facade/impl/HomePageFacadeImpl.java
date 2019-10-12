@@ -4,7 +4,7 @@
 
 package pl.MikBac.salaryApp.spring.facade.impl;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.facade.HomePageFacade;
 import pl.MikBac.salaryApp.spring.service.CountryService;
@@ -12,7 +12,7 @@ import pl.MikBac.salaryApp.spring.service.CountryService;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Component
+@Service
 public class HomePageFacadeImpl implements HomePageFacade {
 
     @Resource
