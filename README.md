@@ -63,7 +63,7 @@ http://localhost:8080/
 
 ## Built with
 
-* [JDK - 8](https://www.oracle.com/technetwork/java/index.html)
+* [JDK 8](https://www.oracle.com/technetwork/java/index.html)
 
 * [Spring Boot - 2.1.6.RELEASE](https://spring.io/projects/spring-boot) 
 
