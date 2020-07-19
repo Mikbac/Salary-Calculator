@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Mikbac/Salary-Calculator.svg?branch=master)](https://travis-ci.org/Mikbac/Salary-Calculator)
+![GitHub](https://img.shields.io/github/license/Mikbac/Salary-Calculator)
 
 # Salary Calculator
 
