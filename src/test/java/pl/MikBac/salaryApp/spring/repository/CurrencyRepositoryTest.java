@@ -4,21 +4,42 @@
 
 package pl.MikBac.salaryApp.spring.repository;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
+import pl.MikBac.salaryApp.spring.property.NbpProperties;
 import pl.MikBac.salaryApp.spring.repository.impl.CurrencyRepositoryImpl;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.mockito.Mockito.when;
 
+@RunWith(SpringRunner.class)
+@ActiveProfiles("development")
 public class CurrencyRepositoryTest {
+
+    @InjectMocks
+    private final CurrencyRepository currencyRepository = new CurrencyRepositoryImpl();
+
+    @Mock
+    private NbpProperties nbpProperties;
+
+    @Before
+    public void init() {
+        when(nbpProperties.getAddress()).thenReturn("http://api.nbp.pl");
+    }
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is correct value")
     public void getExchangeRateWhenCountryCodeIsCorrect() {
-        CurrencyRepository currencyRepository = new CurrencyRepositoryImpl();
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("EUR").get());
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("eur").get());
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("GBP").get());
@@ -28,7 +49,6 @@ public class CurrencyRepositoryTest {
     @Test
     @DisplayName("return getExchangeRate when countryCode is PLN")
     public void getExchangeRateWhenCountryCodeIsPLN() {
-        CurrencyRepository currencyRepository = new CurrencyRepositoryImpl();
         assertEquals(new BigDecimal(1), currencyRepository.getExchangeRate("PLN").get());
         assertEquals(new BigDecimal(1), currencyRepository.getExchangeRate("pln").get());
     }

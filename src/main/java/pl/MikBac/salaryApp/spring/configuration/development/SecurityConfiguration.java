@@ -36,8 +36,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers(AntPatterns.RESOURCES, AntPatterns.ASSETS, AntPatterns.CSS, AntPatterns.LESS,
-                        AntPatterns.JS, AntPatterns.IMAGES, AntPatterns.FONTS, AntPatterns.JSON);
+                .antMatchers(AntPatterns.RESOURCES,
+                        AntPatterns.ASSETS,
+                        AntPatterns.CSS,
+                        AntPatterns.LESS,
+                        AntPatterns.JS,
+                        AntPatterns.IMAGES,
+                        AntPatterns.FONTS,
+                        AntPatterns.JSON);
     }
 
 }

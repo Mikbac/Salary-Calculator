@@ -22,12 +22,12 @@ public class SalaryPl implements SalaryStrategy {
 
     public BigDecimal calculateSalary(final BigDecimal exchangeRate, final CountryModel country, final String salaryFromClient) {
         try {
-            BigDecimal valueOfMoney = new BigDecimal(salaryFromClient);
-            BigDecimal fixedCosts = country.getFixedCosts();
-            BigDecimal tax = country.getTax();
-            BigDecimal baseValue = (valueOfMoney.multiply(BigDecimal.valueOf(22))).subtract(fixedCosts);
-            BigDecimal salary = baseValue.subtract(baseValue.multiply(tax.divide(BigDecimal.valueOf(100))));
-            BigDecimal salaryPLN = exchangeRate.multiply(salary);
+            final BigDecimal valueOfMoney = new BigDecimal(salaryFromClient);
+            final BigDecimal fixedCosts = country.getFixedCosts();
+            final BigDecimal tax = country.getTax();
+            final BigDecimal baseValue = (valueOfMoney.multiply(BigDecimal.valueOf(22))).subtract(fixedCosts);
+            final BigDecimal salary = baseValue.subtract(baseValue.multiply(tax.divide(BigDecimal.valueOf(100))));
+            final BigDecimal salaryPLN = exchangeRate.multiply(salary);
             return salaryPLN.setScale(2, RoundingMode.CEILING);
         } catch (NumberFormatException e) {
             log.error("Invalid value from client for: {}", () -> salaryFromClient);

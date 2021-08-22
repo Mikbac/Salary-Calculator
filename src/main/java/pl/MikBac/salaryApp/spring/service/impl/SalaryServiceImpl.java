@@ -23,7 +23,7 @@ public class SalaryServiceImpl implements SalaryService {
 
     @Override
     public BigDecimal getSalaryPLN(final CountryModel country, final String valueFromClient) {
-        Salary salary = new Salary();
+        final Salary salary = new Salary();
         salary.setStrategy(new SalaryPl());
         return salary.calculateSalary(currencyRepository.getExchangeRate(country.getCurrencyCode())
                 .orElseThrow(() -> new ExchangeRateNotFoundException(country.getCurrencyCode())), country, valueFromClient);

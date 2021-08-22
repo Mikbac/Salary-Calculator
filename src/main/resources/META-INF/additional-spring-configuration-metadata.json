@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "nbp.api.address",
+      "type": "java.lang.String",
+      "description": "Address NBP API."
+    }
+  ]
+}
