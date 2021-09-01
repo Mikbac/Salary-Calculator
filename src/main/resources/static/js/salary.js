@@ -1,24 +1,35 @@
 /**
  * Created by MikBac on 2018
  */
+APP.salary = {
 
-var APP = APP || {};
+    _autoload: [
+        'bindCalculateSalary'
+    ],
 
-APP.calculator = (function () {
+    bindCalculateSalary: function () {
+        var form = 'form.js-calculate-form';
 
-    var app = angular.module('myApp', []);
+        $(form).submit(APP.salary.getSalary)
+    },
 
-    app.controller('myCtrl', function ($scope, $http) {
-        $scope.content = "0";
-        $scope.calculate = function (country, value) {
-            $http.get("/salary-calculator/salary/pln/?countryCode=" + country + "&salary=" + value, {responseType: 'text'})
-                .then(function successCallback(response) {
-                        $scope.content = response.data;
-                    }, function errorCallback(response) {
-                        $scope.content = "error";
-                    }
-                );
-        };
-    });
+    getSalary: function (event) {
+        event.preventDefault();
 
-})();
+        var value = $(this).find('input[name="value"]').val();
+        var countryCode = $(this).find('input[name="countryCode"]').val();
+
+        $.ajax({
+            url: '/salary-calculator/salary/pln/?countryCode=' + countryCode + '&salary=' + value,
+            type: 'GET',
+            success: function (response) {
+                console.log(response)
+                $('.js-resoult' + countryCode).text(response);
+            },
+            error: function () {
+                console.error('error');
+            }
+        })
+    }
+
+};

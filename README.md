@@ -83,9 +83,7 @@ http://localhost:8080/
 
 * [HTML5]()
 
-* [CSS]()
-
-* [AngularJS](https://angularjs.org/) 
+* [Less CSS](https://lesscss.org/)
 
 The application uses the [NBP Web API](http://api.nbp.pl/). 
 

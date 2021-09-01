@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:fragment="scripts">
+
+    <!-- less css -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- imports -->
+    <script>var APP = APP || {}</script>
+    <script type="text/javascript" th:src="@{/js/_autoload.js}"></script>
+    <script type="text/javascript" th:src="@{/js/salary.js}"></script>
+
+<!--    <script>_autoload()</script>-->
+</th:block>
+</html>

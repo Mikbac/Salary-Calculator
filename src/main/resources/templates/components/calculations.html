@@ -4,16 +4,20 @@ Created by MikBac on 7.08.2019
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="salary">
-<div th:each="country: ${countries}" class="col-12 col-md-4">
-    <div class="calculate" , ng-controller="myCtrl">
-        <h2 th:text="${country.countryCode}"></h2>
-        <form><span th:text="${country.currencyCode}"></span>:<input type="text" ng-model="value">
-            <button type="button" class="btn btn-primary" th:attr="ng-click='calculate(\''+${country.countryCode}+'\', value);'"><span
-                    th:text="#{main.page.button.calculate.text}"></span></button>
-        </form>
-        <h3><span th:text="#{main.page.answer.text}"></span>:</h3>
-        <p><span th:text="#{main.page.answer.pln.text}"></span>: {{content}}</p>
+    <div th:each="country: ${countries}" class="col-12 col-md-4">
+        <div class="calculate" , ng-controller="myCtrl">
+            <h2 th:text="${country.countryCode}"></h2>
+            <form class="js-calculate-form">
+                <span th:text="${country.currencyCode}"></span>:<input type="text" name="value">
+                <input type="hidden" name="countryCode" th:value="${country.countryCode}">
+                <button type="submit" class="btn btn-primary"><span
+                        th:text="#{main.page.button.calculate.text}"></span></button>
+            </form>
+            <h3><span th:text="#{main.page.answer.text}"></span>:</h3>
+            <p><span th:text="#{main.page.answer.pln.text}"></span>:<span
+                    th:class="'js-resoult'+${country.countryCode}">0.0</span></p>
+            </p>
+        </div>
     </div>
-</div>
 </th:block>
 </html>
