@@ -10,8 +10,8 @@
         <version>2.1.6.RELEASE</version>
     </parent>
 
-    <groupId>pl.MikBac</groupId>
-    <artifactId>salaryApp</artifactId>
+    <groupId>pl.mikbac</groupId>
+    <artifactId>salaryapp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
