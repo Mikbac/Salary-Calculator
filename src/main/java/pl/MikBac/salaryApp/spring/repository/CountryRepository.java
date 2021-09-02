@@ -13,8 +13,19 @@ import java.util.Optional;
 
 public interface CountryRepository extends CrudRepository<CountryModel, Integer>, PagingAndSortingRepository<CountryModel, Integer> {
 
+    /**
+     * Find country by country code.
+     *
+     * @param countryCode of selected country.
+     * @return optional {@link CountryModel}.
+     */
     Optional<CountryModel> findByCountryCode(String countryCode);
 
+    /**
+     * Find the list of all countries.
+     *
+     * @return list of all countries {@link CountryModel}.
+     */
     List<CountryModel> findAll();
 
 }

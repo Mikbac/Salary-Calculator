@@ -9,6 +9,12 @@ import java.util.Optional;
 
 public interface CurrencyRepository {
 
+    /**
+     * Find currency by currency code.
+     *
+     * @param currencyCode of selected currency.
+     * @return optional {@link BigDecimal}.
+     */
     Optional<BigDecimal> getExchangeRate(final String currencyCode);
 
 }

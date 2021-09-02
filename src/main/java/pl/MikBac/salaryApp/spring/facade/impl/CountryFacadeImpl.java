@@ -26,8 +26,7 @@ public class CountryFacadeImpl implements CountryFacade {
 
     @Resource
     private CountryService countryService;
-    @Resource
-    private SalaryService salaryService;
+
     @Resource
     private Converter<CountryData, CountryModel> countryConverter;
 
@@ -42,12 +41,6 @@ public class CountryFacadeImpl implements CountryFacade {
     public ResponseEntity<CountryModel> addCountry(final CountryModel country) {
         countryService.saveCountry(country);
         return ResponseEntity.ok().body(country);
-    }
-
-    @Override
-    public BigDecimal calculateSalary(final String countryCode, final String valueFromClient) {
-        return salaryService.getSalaryPLN(countryService.getCountryByCode(countryCode)
-                .orElseThrow(() -> new CountryNotFoundException(countryCode)), valueFromClient);
     }
 
 }

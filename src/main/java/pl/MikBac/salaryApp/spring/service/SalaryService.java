@@ -10,6 +10,13 @@ import java.math.BigDecimal;
 
 public interface SalaryService {
 
+    /**
+     * Calculate salary.
+     *
+     * @param country         to calculate salary.
+     * @param valueFromClient salary from user.
+     * @return salary {@link BigDecimal}.
+     */
     BigDecimal getSalaryPLN(final CountryModel country, final String valueFromClient);
 
 }

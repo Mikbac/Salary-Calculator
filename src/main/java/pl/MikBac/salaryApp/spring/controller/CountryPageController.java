@@ -21,6 +21,7 @@ import pl.MikBac.salaryApp.constants.WebConstants.Mapping;
 import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
+import pl.MikBac.salaryApp.spring.facade.SalaryFacade;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -36,6 +37,9 @@ public class CountryPageController {
 
     @Resource
     private CountryFacade countryFacade;
+
+    @Resource
+    private SalaryFacade salaryFacade;
 
     @ApiOperation(value = "Get a list of all available countries.")
     @GetMapping(value = Mapping.COUNTRIES, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -62,7 +66,7 @@ public class CountryPageController {
     @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public BigDecimal getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
-        return countryFacade.calculateSalary(countryCode, salaryFromClient);
+        return salaryFacade.calculateSalary(countryCode, salaryFromClient);
     }
 
     @PostMapping(value = Mapping.COUNTRY)

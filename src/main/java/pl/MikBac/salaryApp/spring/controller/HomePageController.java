@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.MikBac.salaryApp.constants.AttributeConstants.ModelAttributes.HomePage;
 import pl.MikBac.salaryApp.constants.WebConstants.Mapping;
 import pl.MikBac.salaryApp.constants.WebConstants.Views;
-import pl.MikBac.salaryApp.spring.facade.HomePageFacade;
+import pl.MikBac.salaryApp.spring.facade.CountryFacade;
 
 import javax.annotation.Resource;
 
@@ -21,18 +21,24 @@ import javax.annotation.Resource;
 public class HomePageController {
 
     @Resource
-    private HomePageFacade homePageFacade;
+    private CountryFacade countryFacade;
 
     @GetMapping
     public String get(final Model model) {
-        model.addAttribute(HomePage.COUNTRIES, homePageFacade.getCountries());
+        populateModel(model);
+
         return Views.MAIN_PAGE;
     }
 
     @PostMapping
     public String setLanguage(final Model model) {
-        model.addAttribute(HomePage.COUNTRIES, homePageFacade.getCountries());
+        populateModel(model);
+
         return Views.MAIN_PAGE;
+    }
+
+    private void populateModel(final Model model) {
+        model.addAttribute(HomePage.COUNTRIES, countryFacade.getAllCountries());
     }
 
 }
