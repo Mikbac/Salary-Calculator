@@ -1,10 +1,10 @@
-/**
- * Created by MikBac on 25.07.2019
- */
-
 package pl.MikBac.salaryApp.spring.facade;
 
 import java.math.BigDecimal;
+
+/**
+ * Created by MikBac on 25.07.2019
+ */
 
 public interface SalaryFacade {
 

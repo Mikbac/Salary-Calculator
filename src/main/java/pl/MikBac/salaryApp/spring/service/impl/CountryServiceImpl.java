@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 2018
- */
-
 package pl.MikBac.salaryApp.spring.service.impl;
 
 import org.springframework.stereotype.Service;
@@ -12,6 +8,10 @@ import pl.MikBac.salaryApp.spring.service.CountryService;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Created by MikBac on 2018
+ */
 
 @Service
 public class CountryServiceImpl implements CountryService {

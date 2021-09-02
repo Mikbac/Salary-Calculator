@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 19.08.2019
- */
-
 package pl.MikBac.salaryApp.spring.controller;
 
 import org.springframework.context.MessageSource;
@@ -17,6 +13,10 @@ import pl.MikBac.salaryApp.exception.InvalidSalaryFromClientException;
 
 import javax.annotation.Resource;
 import java.util.Locale;
+
+/**
+ * Created by MikBac on 19.08.2019
+ */
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

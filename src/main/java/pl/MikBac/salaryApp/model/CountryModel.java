@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 2018
- */
-
 package pl.MikBac.salaryApp.model;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +14,10 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
+
+/**
+ * Created by MikBac on 2018
+ */
 
 @Getter
 @Setter

@@ -1,8 +1,8 @@
+package pl.MikBac.salaryApp.constants;
+
 /**
  * Created by MikBac on 05.10.2019
  */
-
-package pl.MikBac.salaryApp.constants;
 
 public interface ConfigurationConstants {
 

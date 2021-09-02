@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 2018
- */
-
 package pl.MikBac.salaryApp.spring.controller;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +11,10 @@ import pl.MikBac.salaryApp.constants.WebConstants.Views;
 import pl.MikBac.salaryApp.spring.facade.CountryFacade;
 
 import javax.annotation.Resource;
+
+/**
+ * Created by MikBac on 2018
+ */
 
 @Controller
 @RequestMapping(Mapping.ROOT)

@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 07.09.2019
- */
-
 package pl.MikBac.salaryApp.spring.service.impl;
 
 import org.springframework.stereotype.Service;
@@ -14,6 +10,10 @@ import pl.MikBac.salaryApp.spring.service.impl.salary.impl.strategies.SalaryPl;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+
+/**
+ * Created by MikBac on 07.09.2019
+ */
 
 @Service
 public class SalaryServiceImpl implements SalaryService {

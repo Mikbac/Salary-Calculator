@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 2018
- */
-
 package pl.MikBac.salaryApp.spring.service.impl.salary.impl.strategies;
 
 import lombok.extern.log4j.Log4j2;
@@ -12,6 +8,10 @@ import pl.MikBac.salaryApp.spring.service.impl.salary.SalaryStrategy;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
+/**
+ * Created by MikBac on 2018
+ */
 
 @Log4j2
 @Service

@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 06.08.2019
- */
-
 package pl.MikBac.salaryApp.spring.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -14,6 +10,10 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import pl.MikBac.salaryApp.spring.interceptor.CountryInterceptor;
 
 import java.util.Locale;
+
+/**
+ * Created by MikBac on 06.08.2019
+ */
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {

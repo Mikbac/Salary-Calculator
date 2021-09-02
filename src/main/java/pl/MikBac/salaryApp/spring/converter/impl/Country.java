@@ -1,13 +1,13 @@
-/**
- * Created by MikBac on 07.09.2019
- */
-
 package pl.MikBac.salaryApp.spring.converter.impl;
 
 import org.springframework.stereotype.Service;
 import pl.MikBac.salaryApp.data.impl.CountryData;
 import pl.MikBac.salaryApp.model.CountryModel;
 import pl.MikBac.salaryApp.spring.converter.Converter;
+
+/**
+ * Created by MikBac on 07.09.2019
+ */
 
 @Service
 public class Country implements Converter<CountryData, CountryModel> {

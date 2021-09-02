@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 2018
- */
-
 package pl.MikBac.salaryApp.spring.controller;
 
 import io.swagger.annotations.ApiImplicitParam;
@@ -28,6 +24,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
+
+/**
+ * Created by MikBac on 2018
+ */
 
 @Log4j2
 @CrossOrigin

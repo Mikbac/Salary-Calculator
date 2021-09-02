@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 06.08.2019
- */
-
 package pl.MikBac.salaryApp.spring.configuration.development;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +9,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import pl.MikBac.salaryApp.constants.ConfigurationConstants.Profiles;
 import pl.MikBac.salaryApp.constants.WebConstants.AntPatterns;
+
+/**
+ * Created by MikBac on 06.08.2019
+ */
 
 @Configuration
 @Profile(Profiles.DEVELOPMENT)

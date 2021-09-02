@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 13.08.2019
- */
-
 package pl.MikBac.salaryApp.spring.configuration;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -11,6 +7,10 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+
+/**
+ * Created by MikBac on 13.08.2019
+ */
 
 @Configuration
 public class MappingConfig {

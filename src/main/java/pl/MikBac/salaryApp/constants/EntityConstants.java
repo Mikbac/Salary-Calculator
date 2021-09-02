@@ -1,8 +1,8 @@
+package pl.MikBac.salaryApp.constants;
+
 /**
  * Created by MikBac on 2019
  */
-
-package pl.MikBac.salaryApp.constants;
 
 public interface EntityConstants {
 

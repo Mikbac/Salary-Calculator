@@ -1,7 +1,3 @@
-/**
- * Created by MikBac on 07.09.2019
- */
-
 package pl.MikBac.salaryApp.spring.repository.impl;
 
 import lombok.extern.log4j.Log4j2;
@@ -16,6 +12,10 @@ import pl.MikBac.salaryApp.spring.repository.CurrencyRepository;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Optional;
+
+/**
+ * Created by MikBac on 07.09.2019
+ */
 
 @Log4j2
 @Repository
