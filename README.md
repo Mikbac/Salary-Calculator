@@ -43,13 +43,16 @@ http://localhost:8080/swagger-ui.html#/
 
 ### Installing
 ```
-    mvn install
+mvn install
+cd target   
+java -jar salaryapp-1.0-SNAPSHOT.war
 ```
+
+or 
+
 ```
-    cd target
-```
-```    
-    java -jar artifact-1.0-SNAPSHOT.war
+docker build --tag mikbac/salaryapp:1.0 -f Dockerfile .
+docker container run -p 8080:8080 --ip 0.0.0.0 --name salaryapp mikbac/salaryapp:1.0
 ```
 
 Open the browser and hit 
