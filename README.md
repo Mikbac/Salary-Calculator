@@ -52,8 +52,8 @@ java -jar salaryapp-1.0-SNAPSHOT.war
 or 
 
 ```
-docker build --tag mikbac/salaryapp:1.0 -f Dockerfile .
-docker container run -p 8080:8080 --ip 0.0.0.0 --name salaryapp mikbac/salaryapp:1.0
+docker build --tag mikbac/salary_app:1.0 -f Dockerfile .
+docker container run -p 8080:8080 --ip 0.0.0.0 --name salary_app mikbac/salary_app:1.0
 ```
 
 2. Open the browser and hit 

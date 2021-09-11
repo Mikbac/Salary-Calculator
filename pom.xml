@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>pl.mikbac</groupId>
-    <artifactId>salaryapp</artifactId>
+    <artifactId>salary_app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>salaryapp</name>
+    <name>salary_app</name>
     <packaging>war</packaging>
 
     <properties>
