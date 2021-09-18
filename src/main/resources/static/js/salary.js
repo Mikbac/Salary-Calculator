@@ -20,7 +20,7 @@ APP.salary = {
         var countryCode = $(this).find('input[name="countryCode"]').val();
 
         $.ajax({
-            url: '/salary-calculator/salary/pln/?countryCode=' + countryCode + '&salary=' + value,
+            url: '/api/salaries/pln/?countryCode=' + countryCode + '&salary=' + value,
             type: 'GET',
             success: function (response) {
                 console.log(response)

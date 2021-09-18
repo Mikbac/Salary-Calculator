@@ -8,10 +8,9 @@ public interface WebConstants {
 
     interface Mapping {
         String ROOT = "/";
-        String SALARY_CALCULATOR = ROOT + "salary-calculator";
-        String COUNTRY = ROOT + "country";
-        String COUNTRIES = ROOT + "country";
-        String CALCULATOR = ROOT + "salary/pln";
+        String API = "/api";
+        String COUNTRIES = ROOT + "countries";
+        String CALCULATOR = ROOT + "salaries/pln";
         String ERROR_PAGE = ROOT + "error";
     }
 

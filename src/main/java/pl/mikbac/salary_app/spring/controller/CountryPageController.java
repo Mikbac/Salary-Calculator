@@ -32,7 +32,7 @@ import java.util.List;
 @Log4j2
 @CrossOrigin
 @RestController
-@RequestMapping(Mapping.SALARY_CALCULATOR)
+@RequestMapping(Mapping.API)
 public class CountryPageController {
 
     @Resource
@@ -69,7 +69,7 @@ public class CountryPageController {
         return salaryFacade.calculateSalary(countryCode, salaryFromClient);
     }
 
-    @PostMapping(value = Mapping.COUNTRY)
+    @PostMapping(value = Mapping.COUNTRIES)
     public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
         log.info("Adding new country: {}", () -> country);
         return countryFacade.addCountry(country);

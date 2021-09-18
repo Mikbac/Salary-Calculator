@@ -64,9 +64,9 @@ http://localhost:8080/
 ## API Endpoint
 |Endpoints|Usage|Params|
 |---|---|---|
-|```GET /salary-calculator/countries```|Get all of the countries available for the app.||
-|```POST /salary-calculator/country```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
-|```GET /salary-calculator/salary/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
+|```GET /api/countries```|Get all of the countries available for the app.||
+|```POST /api/countries```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
+|```GET /api/salaries/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
 
 
 ## Built with
