@@ -14,6 +14,7 @@ The application converts salary to PLN.
 * [Prerequisites](#prerequisites)
 * [Installing](#installing)
 * [API Endpoint](#api-endpoint)
+* [Example](#example)
 * [Built with](#built-with)
 
 ## Getting Started
