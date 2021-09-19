@@ -68,6 +68,9 @@ http://localhost:8080/
 |```POST /api/countries```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
 |```GET /api/salaries/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.|**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
 
+## Example:
+
+An example of an HTTP request is available in the ```http/question.http``` file.
 
 ## Built with
 

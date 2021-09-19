@@ -1,0 +1,16 @@
+### Get all of the countries available for the app.
+GET {{host}}/api/countries
+
+### Add a new countryModel.
+POST {{host}}/api/countries
+Content-Type: application/json
+
+{
+"countryCode":"FR",
+"tax":15,
+"fixedCosts":900,
+"currencyCode":"EUR"
+}
+
+### Calculate salary.
+GET {{host}}/api/salaries/pln?countryCode={{countryCode}}&salary={{salaryFromClient}}
