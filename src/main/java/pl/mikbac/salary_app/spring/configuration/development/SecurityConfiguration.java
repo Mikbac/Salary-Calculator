@@ -29,8 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic().disable()
                 .authorizeRequests()
                 .antMatchers(AntPatterns.ROOT).permitAll()
-                .and().headers().frameOptions().sameOrigin()
-                .and().csrf().disable();
+                .and().headers().frameOptions().sameOrigin();
     }
 
     @Override

@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 import pl.mikbac.salary_app.exception.InvalidApiAddressException;
 import pl.mikbac.salary_app.model.ExchangeRate;
 import pl.mikbac.salary_app.spring.property.NbpProperties;
@@ -24,10 +25,6 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     @Resource
     private NbpProperties nbpProperties;
 
-    private String getUrl(final String currencyCode) {
-        return nbpProperties.getAddress() + "/api/exchangerates/rates/A/" + currencyCode + "/?format=json";
-    }
-
     @Override
     public Optional<BigDecimal> getExchangeRate(final String currencyCode) {
         String url = getUrl(currencyCode);
@@ -46,6 +43,15 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
             log.error("Invalid API address for url: {}", () -> url);
             throw new InvalidApiAddressException(url);
         }
+    }
+
+    private String getUrl(final String currencyCode) {
+        return UriComponentsBuilder
+                .fromUriString(nbpProperties.getAddress())
+                .path("/api/exchangerates/rates/A/" + currencyCode)
+                .queryParam("format", "json")
+                .build()
+                .toUriString();
     }
 
 }
