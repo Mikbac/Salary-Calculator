@@ -1,12 +1,12 @@
 package pl.mikbac.salary_app.spring.service.impl;
 
 import org.springframework.stereotype.Service;
+import pl.mikbac.salary_app.exception.ExchangeRateNotFoundException;
+import pl.mikbac.salary_app.model.CountryModel;
 import pl.mikbac.salary_app.spring.repository.CurrencyRepository;
 import pl.mikbac.salary_app.spring.service.SalaryService;
 import pl.mikbac.salary_app.spring.service.impl.salary.impl.Salary;
 import pl.mikbac.salary_app.spring.service.impl.salary.impl.strategies.SalaryPl;
-import pl.mikbac.salary_app.exception.ExchangeRateNotFoundException;
-import pl.mikbac.salary_app.model.CountryModel;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;

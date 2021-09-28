@@ -37,7 +37,7 @@ public class HomePageController {
     }
 
     @ModelAttribute(HomePage.COUNTRIES)
-    private List<CountryData> populateModel() {
+    private List<CountryData> getCountries() {
         return countryFacade.getAllCountries();
     }
 

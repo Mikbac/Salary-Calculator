@@ -1,8 +1,8 @@
 package pl.mikbac.salary_app.spring.service.impl;
 
 import org.springframework.stereotype.Service;
-import pl.mikbac.salary_app.spring.repository.CountryRepository;
 import pl.mikbac.salary_app.model.CountryModel;
+import pl.mikbac.salary_app.spring.repository.CountryRepository;
 import pl.mikbac.salary_app.spring.service.CountryService;
 
 import javax.annotation.Resource;

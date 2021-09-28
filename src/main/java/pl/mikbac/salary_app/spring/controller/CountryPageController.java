@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.mikbac.salary_app.data.impl.CountryData;
-import pl.mikbac.salary_app.spring.facade.SalaryFacade;
 import pl.mikbac.salary_app.constants.WebConstants.Mapping;
+import pl.mikbac.salary_app.data.impl.CountryData;
 import pl.mikbac.salary_app.model.CountryModel;
 import pl.mikbac.salary_app.spring.facade.CountryFacade;
+import pl.mikbac.salary_app.spring.facade.SalaryFacade;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -64,9 +64,9 @@ public class CountryPageController {
                     defaultValue = "99")
     })
     @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public BigDecimal getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
+    public ResponseEntity<BigDecimal> getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
-        return salaryFacade.calculateSalary(countryCode, salaryFromClient);
+        return ResponseEntity.ok(salaryFacade.calculateSalary(countryCode, salaryFromClient));
     }
 
     @PostMapping(value = Mapping.COUNTRIES)

@@ -2,6 +2,7 @@ package pl.mikbac.salary_app.spring.controller;
 
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,7 +28,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CountryNotFoundException.class)
     @ResponseBody
     public ResponseEntity<Object> countryNotFoundException(final Locale locale) {
-        return ResponseEntity.ok()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .body(messageSource.getMessage("error.country.not.found.text", null, locale));
     }
@@ -35,14 +36,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidApiAddressException.class)
     @ResponseBody
     public ResponseEntity<Object> invalidApiAddressException(final Locale locale) {
-        return ResponseEntity.ok()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .body(messageSource.getMessage("error.invalid.api.address.text", null, locale));
     }
 
     @ExceptionHandler(InvalidSalaryFromClientException.class)
     public ResponseEntity<Object> invalidSalaryFromClientException(final Locale locale) {
-        return ResponseEntity.ok()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .body(messageSource.getMessage("error.invalid.salary.from.client.text", null, locale));
     }

@@ -2,7 +2,7 @@
 <Configuration status="warn" monitorInterval="30">
     <Properties>
         <Property name="LOG_PATTERN">
-            %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ${hostName} --- [%t] %-40.40c{1.} : %m%n%ex
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ${hostName} --- [%t] %-40.40c{1.} : [%l] -- %m%n%ex
         </Property>
     </Properties>
     <Appenders>

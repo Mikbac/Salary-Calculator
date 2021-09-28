@@ -4,10 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.mikbac.salary_app.data.impl.CountryData;
-import pl.mikbac.salary_app.spring.converter.Converter;
-import pl.mikbac.salary_app.spring.service.CountryService;
 import pl.mikbac.salary_app.model.CountryModel;
+import pl.mikbac.salary_app.spring.converter.Converter;
 import pl.mikbac.salary_app.spring.facade.CountryFacade;
+import pl.mikbac.salary_app.spring.service.CountryService;
 
 import javax.annotation.Resource;
 import java.util.List;
