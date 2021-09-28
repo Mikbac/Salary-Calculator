@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.mikbac.salary_app.spring.controller.CountryPageController;
+import pl.mikbac.salary_app.spring.controller.api.CountryController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,11 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WebApplicationTest {
 
     @Autowired
-    CountryPageController countryPageController;
+    CountryController countryController;
 
     @Test
     public void contextLoads() {
-        assertThat(countryPageController).isNotNull();
+        assertThat(countryController).isNotNull();
     }
 
 }

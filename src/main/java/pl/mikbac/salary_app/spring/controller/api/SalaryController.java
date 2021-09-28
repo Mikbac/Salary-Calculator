@@ -1,4 +1,4 @@
-package pl.mikbac.salary_app.spring.controller;
+package pl.mikbac.salary_app.spring.controller.api;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -8,22 +8,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.mikbac.salary_app.constants.WebConstants.Mapping;
-import pl.mikbac.salary_app.data.impl.CountryData;
-import pl.mikbac.salary_app.model.CountryModel;
-import pl.mikbac.salary_app.spring.facade.CountryFacade;
 import pl.mikbac.salary_app.spring.facade.SalaryFacade;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * Created by MikBac on 2018
@@ -33,20 +25,10 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping(Mapping.API)
-public class CountryPageController {
-
-    @Resource
-    private CountryFacade countryFacade;
+public class SalaryController {
 
     @Resource
     private SalaryFacade salaryFacade;
-
-    @ApiOperation(value = "Get a list of all available countries.")
-    @GetMapping(value = Mapping.COUNTRIES, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CountryData> getCountries() {
-        log.info("Getting all countries");
-        return countryFacade.getAllCountries();
-    }
 
     @ApiOperation(value = "Calculate the salary.")
     @ApiImplicitParams({
@@ -64,15 +46,10 @@ public class CountryPageController {
                     defaultValue = "99")
     })
     @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<BigDecimal> getSalary(@RequestParam(value = "countryCode", required = true) String countryCode, @RequestParam(value = "salary", required = true) String salaryFromClient) {
+    public ResponseEntity<BigDecimal> getSalary(@RequestParam(value = "countryCode", required = true) final String countryCode,
+                                                @RequestParam(value = "salary", required = true) final String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
         return ResponseEntity.ok(salaryFacade.calculateSalary(countryCode, salaryFromClient));
-    }
-
-    @PostMapping(value = Mapping.COUNTRIES)
-    public ResponseEntity<CountryModel> addCountry(@RequestBody @Valid @NotNull CountryModel country) {
-        log.info("Adding new country: {}", () -> country);
-        return countryFacade.addCountry(country);
     }
 
 }

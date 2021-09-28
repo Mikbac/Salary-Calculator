@@ -15,6 +15,6 @@ public interface CurrencyRepository {
      * @param currencyCode of selected currency.
      * @return optional {@link BigDecimal}.
      */
-    Optional<BigDecimal> getExchangeRate(final String currencyCode);
+    Optional<BigDecimal> getExchangeRate(String currencyCode);
 
 }

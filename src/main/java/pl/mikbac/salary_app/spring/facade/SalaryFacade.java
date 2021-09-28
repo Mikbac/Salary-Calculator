@@ -15,5 +15,5 @@ public interface SalaryFacade {
      * @param valueFromClient salary from user.
      * @return salary {@link BigDecimal}.
      */
-    BigDecimal calculateSalary(final String countryCode, final String valueFromClient);
+    BigDecimal calculateSalary(String countryCode, String valueFromClient);
 }

@@ -15,12 +15,14 @@ import java.math.RoundingMode;
 
 @Log4j2
 @Service
-public class SalaryPl implements SalaryStrategy {
+public class SalaryPLN implements SalaryStrategy {
 
-    public SalaryPl() {
+    public SalaryPLN() {
     }
 
-    public BigDecimal calculateSalary(final BigDecimal exchangeRate, final CountryModel country, final String salaryFromClient) {
+    public BigDecimal calculateSalary(final BigDecimal exchangeRate,
+                                      final CountryModel country,
+                                      final String salaryFromClient) {
         try {
             final BigDecimal valueOfMoney = new BigDecimal(salaryFromClient);
             final BigDecimal fixedCosts = country.getFixedCosts();

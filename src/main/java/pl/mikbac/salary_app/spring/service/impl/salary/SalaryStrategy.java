@@ -10,6 +10,14 @@ import java.math.BigDecimal;
 
 public interface SalaryStrategy {
 
-    BigDecimal calculateSalary(final BigDecimal exchangeRate, final CountryModel country, final String valueFromClient);
+    /**
+     * Calculate the salary for the given parameters.
+     *
+     * @param exchangeRate    exchange rate for source salary.
+     * @param country         source salary country.
+     * @param valueFromClient salary from the user.
+     * @return salary {@link BigDecimal}.
+     */
+    BigDecimal calculateSalary(BigDecimal exchangeRate, CountryModel country, String valueFromClient);
 
 }

@@ -25,6 +25,6 @@ public interface CountryFacade {
      * @param country CountryModel.
      * @return ResponseEntity of {@link CountryModel}.
      */
-    ResponseEntity<CountryModel> addCountry(final CountryModel country);
+    ResponseEntity<CountryModel> addCountry(CountryModel country);
 
 }

@@ -1,4 +1,4 @@
-package pl.mikbac.salary_app.spring.controller;
+package pl.mikbac.salary_app.spring.controller.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

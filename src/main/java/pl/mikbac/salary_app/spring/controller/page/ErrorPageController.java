@@ -1,4 +1,4 @@
-package pl.mikbac.salary_app.spring.controller;
+package pl.mikbac.salary_app.spring.controller.page;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

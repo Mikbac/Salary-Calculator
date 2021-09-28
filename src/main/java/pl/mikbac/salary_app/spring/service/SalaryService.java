@@ -17,6 +17,6 @@ public interface SalaryService {
      * @param valueFromClient salary from user.
      * @return salary {@link BigDecimal}.
      */
-    BigDecimal getSalaryPLN(final CountryModel country, final String valueFromClient);
+    BigDecimal getSalaryPLN(CountryModel country, String valueFromClient);
 
 }

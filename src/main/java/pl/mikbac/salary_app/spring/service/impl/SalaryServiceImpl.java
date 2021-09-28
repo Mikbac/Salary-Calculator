@@ -6,7 +6,7 @@ import pl.mikbac.salary_app.model.CountryModel;
 import pl.mikbac.salary_app.spring.repository.CurrencyRepository;
 import pl.mikbac.salary_app.spring.service.SalaryService;
 import pl.mikbac.salary_app.spring.service.impl.salary.impl.Salary;
-import pl.mikbac.salary_app.spring.service.impl.salary.impl.strategies.SalaryPl;
+import pl.mikbac.salary_app.spring.service.impl.salary.impl.strategies.SalaryPLN;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -24,7 +24,7 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public BigDecimal getSalaryPLN(final CountryModel country, final String valueFromClient) {
         final Salary salary = new Salary();
-        salary.setStrategy(new SalaryPl());
+        salary.setStrategy(new SalaryPLN());
         return salary.calculateSalary(currencyRepository.getExchangeRate(country.getCurrencyCode())
                 .orElseThrow(() -> new ExchangeRateNotFoundException(country.getCurrencyCode())), country, valueFromClient);
     }

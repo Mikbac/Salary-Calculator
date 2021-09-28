@@ -1,4 +1,4 @@
-package pl.mikbac.salary_app.spring.controller;
+package pl.mikbac.salary_app.spring.controller.handler;
 
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;

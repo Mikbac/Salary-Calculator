@@ -17,7 +17,9 @@ public class Salary {
         this.strategy = strategy;
     }
 
-    public BigDecimal calculateSalary(final BigDecimal exchangeRate, final CountryModel countryModel, final String valueFromClient) {
+    public BigDecimal calculateSalary(final BigDecimal exchangeRate,
+                                      final CountryModel countryModel,
+                                      final String valueFromClient) {
         return strategy.calculateSalary(exchangeRate, countryModel, valueFromClient);
     }
 
