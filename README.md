@@ -43,7 +43,10 @@ http://localhost:8080/swagger-ui.html#/
 
 
 ### Installing
-1. Build and run the application:
+1. (Optional) Set profile via ```application.properties``` (production or development).
+The default profile is development.
+
+2. Build and run the application:
 ```
 mvn install
 cd target   
@@ -57,7 +60,7 @@ docker build --tag mikbac/salary_app:1.0 -f Dockerfile .
 docker container run -p 8080:8080 --ip 0.0.0.0 --name salary_app mikbac/salary_app:1.0
 ```
 
-2. Open the browser and hit 
+3. Open the browser and hit 
 ```
 http://localhost:8080/
 ```
@@ -78,6 +81,10 @@ An example of an HTTP request is available in the ```http/question.http``` file.
 * [JDK 8](https://www.oracle.com/technetwork/java/index.html)
 
 * [Spring Boot - 2.1.6.RELEASE](https://spring.io/projects/spring-boot) 
+
+  * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
+
+* [Swagger](https://swagger.io/)
 
 * [Thymeleaf](https://www.thymeleaf.org/) 
 
