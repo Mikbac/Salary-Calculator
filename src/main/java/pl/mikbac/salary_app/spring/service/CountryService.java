@@ -23,7 +23,7 @@ public interface CountryService {
      *
      * @param country to add.
      */
-    void saveCountry(CountryModel country);
+    CountryModel saveCountry(CountryModel country);
 
     /**
      * Get country by country code.
@@ -33,4 +33,10 @@ public interface CountryService {
      */
     Optional<CountryModel> getCountryByCode(String countryCode);
 
+    /**
+     * Remove country by country id.
+     *
+     * @param countryId of selected country.
+     */
+    void removeCountry(Long countryId);
 }

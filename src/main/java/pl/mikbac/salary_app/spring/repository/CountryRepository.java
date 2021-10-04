@@ -11,7 +11,7 @@ import java.util.Optional;
  * Created by MikBac on 2018
  */
 
-public interface CountryRepository extends CrudRepository<CountryModel, Integer>, PagingAndSortingRepository<CountryModel, Integer> {
+public interface CountryRepository extends CrudRepository<CountryModel, Long>, PagingAndSortingRepository<CountryModel, Long> {
 
     /**
      * Find country by country code.

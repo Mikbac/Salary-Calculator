@@ -4,6 +4,7 @@ GET {{host}}/api/countries
 ### Add a new countryModel.
 POST {{host}}/api/countries
 Content-Type: application/json
+X-CSRF-TOKEN: abcdefgh-abcd-abcd-abcd-abcdefghijkl
 
 {
 "countryCode":"FR",

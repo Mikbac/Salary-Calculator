@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import pl.mikbac.salary_app.constants.WebConstants.Mapping;
 import pl.mikbac.salary_app.spring.facade.SalaryFacade;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 /**
@@ -24,6 +26,7 @@ import java.math.BigDecimal;
 @Log4j2
 @CrossOrigin
 @RestController
+@Validated
 @RequestMapping(Mapping.API)
 public class SalaryController {
 
@@ -36,18 +39,16 @@ public class SalaryController {
                     value = "Country code.",
                     required = true,
                     dataType = "string",
-                    paramType = "RequestParam",
-                    defaultValue = "UK"),
+                    paramType = "RequestParam"),
             @ApiImplicitParam(name = "salary",
                     value = "User hourly rate.",
                     required = true,
                     dataType = "string",
-                    paramType = "RequestParam",
-                    defaultValue = "99")
+                    paramType = "RequestParam")
     })
     @GetMapping(value = Mapping.CALCULATOR, produces = {MediaType.ALL_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<BigDecimal> getSalary(@RequestParam(value = "countryCode", required = true) final String countryCode,
-                                                @RequestParam(value = "salary", required = true) final String salaryFromClient) {
+    public ResponseEntity<BigDecimal> getSalary(@RequestParam(value = "countryCode") @NotBlank final String countryCode,
+                                                @RequestParam(value = "salary") @NotBlank final String salaryFromClient) {
         log.info("Counting salary for country code: {} and salary from client: {}", () -> countryCode, () -> salaryFromClient);
         return ResponseEntity.ok(salaryFacade.calculateSalary(countryCode, salaryFromClient));
     }

@@ -16,7 +16,7 @@ APP.salary = {
     getSalary: function (event) {
         event.preventDefault();
 
-        var value = $(this).find('input[name="value"]').val();
+        var value = $(this).find('input[name="value"]').val().replace(',', '.');
         var countryCode = $(this).find('input[name="countryCode"]').val();
 
         $.ajax({

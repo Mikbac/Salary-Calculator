@@ -1,7 +1,6 @@
 package pl.mikbac.salary_app.spring.facade.impl;
 
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.mikbac.salary_app.data.impl.CountryData;
 import pl.mikbac.salary_app.model.CountryModel;
@@ -35,9 +34,13 @@ public class CountryFacadeImpl implements CountryFacade {
     }
 
     @Override
-    public ResponseEntity<CountryModel> addCountry(final CountryModel country) {
-        countryService.saveCountry(country);
-        return ResponseEntity.ok().body(country);
+    public CountryData addCountry(final CountryData country) {
+        return countryConverter.convert(countryService.saveCountry(countryConverter.inverseConvert(country)));
+    }
+
+    @Override
+    public void removeCountry(final Long countryId) {
+        countryService.removeCountry(countryId);
     }
 
 }

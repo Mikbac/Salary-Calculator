@@ -10,10 +10,14 @@ import pl.mikbac.salary_app.constants.EntityConstants.Country;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
+
+import static pl.mikbac.salary_app.constants.GlobalConstants.Regex;
 
 /**
  * Created by MikBac on 2018
@@ -26,9 +30,10 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = Country.TABLE)
-public class CountryModel extends Model implements Serializable {
+public class CountryModel extends AbstractModel implements Serializable {
 
-    @NotNull
+    @NotBlank
+    @Pattern(regexp = Regex.ONLY_BIG_LETTERS)
     @Column(name = Country.COUNTRY_CODE)
     private String countryCode;
 
@@ -40,16 +45,16 @@ public class CountryModel extends Model implements Serializable {
     @Column(name = Country.FIXED_COSTS)
     private BigDecimal fixedCosts;
 
-    @NotNull
+    @NotBlank
+    @Pattern(regexp = Regex.ONLY_BIG_LETTERS)
     @Column(name = Country.CURRENCY_CODE)
     private String currencyCode;
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
         if (!(o instanceof CountryModel)) return false;
         final CountryModel that = (CountryModel) o;
-        return Objects.equals(getCountryCode(), that.getCountryCode());
+        return this.countryCode.equals(that.countryCode);
     }
 
     @Override

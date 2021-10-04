@@ -1,6 +1,7 @@
 package pl.mikbac.salary_app.spring.controller.handler;
 
 import org.springframework.context.MessageSource;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,6 +40,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .body(messageSource.getMessage("error.invalid.api.address.text", null, locale));
+    }
+
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    public ResponseEntity<Object> emptyResultDataAccessException(final Locale locale) {
+        return ResponseEntity.status(HttpStatus.NO_CONTENT)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
+                .body(messageSource.getMessage("error.invalid.salary.from.client.text", null, locale));
     }
 
     @ExceptionHandler(InvalidSalaryFromClientException.class)

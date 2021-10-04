@@ -10,6 +10,7 @@ public interface WebConstants {
         String ROOT = "/";
         String API = "/api";
         String COUNTRIES = ROOT + "countries";
+        String COUNTRIES_ID = ROOT + "countries/{countryId}";
         String CALCULATOR = ROOT + "salaries/pln";
         String ERROR_PAGE = ROOT + "error";
     }
@@ -17,18 +18,6 @@ public interface WebConstants {
     interface Views {
         String MAIN_PAGE = "mainPage";
         String ERROR_PAGE = "errorPage";
-    }
-
-    interface AntPatterns {
-        String ROOT = "/";
-        String RESOURCES = "/resources/**";
-        String ASSETS = "/assets/**";
-        String CSS = "/static/css/**";
-        String LESS = "/static/less/**";
-        String JS = "/static/js/**";
-        String IMAGES = "/static/img/**";
-        String FONTS = "/fonts/**";
-        String JSON = "/static/json/**";
     }
 
 }

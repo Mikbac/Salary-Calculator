@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import pl.mikbac.salary_app.constants.GlobalConstants.Package;
 import pl.mikbac.salary_app.spring.property.NbpProperties;
 
 /**
@@ -13,8 +14,8 @@ import pl.mikbac.salary_app.spring.property.NbpProperties;
  */
 
 @Log4j2
-@SpringBootApplication(scanBasePackages = {"pl.mikbac.salary_app.spring"})
-@EntityScan(basePackages = {"pl.mikbac.salary_app.model"})
+@SpringBootApplication(scanBasePackages = {Package.SPRING})
+@EntityScan(basePackages = {Package.MODEL})
 @EnableConfigurationProperties(value = {NbpProperties.class})
 public class WebApplication extends SpringBootServletInitializer {
 

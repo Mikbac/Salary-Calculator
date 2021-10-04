@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
  */
 
 @MappedSuperclass
-public abstract class Model {
+public abstract class AbstractModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

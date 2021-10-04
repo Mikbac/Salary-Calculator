@@ -25,10 +25,8 @@ public class SalaryPLN implements SalaryStrategy {
                                       final String salaryFromClient) {
         try {
             final BigDecimal valueOfMoney = new BigDecimal(salaryFromClient);
-            final BigDecimal fixedCosts = country.getFixedCosts();
-            final BigDecimal tax = country.getTax();
-            final BigDecimal baseValue = (valueOfMoney.multiply(BigDecimal.valueOf(22))).subtract(fixedCosts);
-            final BigDecimal salary = baseValue.subtract(baseValue.multiply(tax.divide(BigDecimal.valueOf(100))));
+            final BigDecimal baseValue = (valueOfMoney.multiply(BigDecimal.valueOf(22))).subtract(country.getFixedCosts());
+            final BigDecimal salary = baseValue.subtract(baseValue.multiply(country.getTax().divide(BigDecimal.valueOf(100))));
             final BigDecimal salaryPLN = exchangeRate.multiply(salary);
             return salaryPLN.setScale(2, RoundingMode.CEILING);
         } catch (NumberFormatException e) {

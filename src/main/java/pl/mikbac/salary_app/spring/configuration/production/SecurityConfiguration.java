@@ -7,8 +7,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import pl.mikbac.salary_app.constants.ConfigurationConstants;
 import pl.mikbac.salary_app.constants.ConfigurationConstants.Profiles;
-import pl.mikbac.salary_app.constants.WebConstants.AntPatterns;
 
 /**
  * Created by MikBac on 06.08.2019
@@ -28,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .httpBasic().disable()
                 .authorizeRequests()
-                .antMatchers(AntPatterns.ROOT).permitAll()
+                .antMatchers(ConfigurationConstants.AntPatterns.ROOT).permitAll()
                 .and().headers().frameOptions().sameOrigin();
     }
 
@@ -36,8 +36,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers(AntPatterns.RESOURCES, AntPatterns.ASSETS, AntPatterns.CSS, AntPatterns.LESS,
-                        AntPatterns.JS, AntPatterns.IMAGES, AntPatterns.FONTS, AntPatterns.JSON);
+                .antMatchers(ConfigurationConstants.AntPatterns.RESOURCES, ConfigurationConstants.AntPatterns.ASSETS, ConfigurationConstants.AntPatterns.CSS, ConfigurationConstants.AntPatterns.LESS,
+                        ConfigurationConstants.AntPatterns.JS, ConfigurationConstants.AntPatterns.IMAGES, ConfigurationConstants.AntPatterns.FONTS, ConfigurationConstants.AntPatterns.JSON);
     }
 
 }

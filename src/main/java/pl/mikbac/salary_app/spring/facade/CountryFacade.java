@@ -1,6 +1,5 @@
 package pl.mikbac.salary_app.spring.facade;
 
-import org.springframework.http.ResponseEntity;
 import pl.mikbac.salary_app.data.impl.CountryData;
 import pl.mikbac.salary_app.model.CountryModel;
 
@@ -23,8 +22,14 @@ public interface CountryFacade {
      * Add country.
      *
      * @param country CountryModel.
-     * @return ResponseEntity of {@link CountryModel}.
+     * @return object of {@link CountryModel}.
      */
-    ResponseEntity<CountryModel> addCountry(CountryModel country);
+    CountryData addCountry(CountryData country);
 
+    /**
+     * Remove country.
+     *
+     * @param countryId Long of country id.
+     */
+    void removeCountry(Long countryId);
 }

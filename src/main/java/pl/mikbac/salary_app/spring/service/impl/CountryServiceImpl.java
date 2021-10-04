@@ -17,7 +17,7 @@ import java.util.Optional;
 public class CountryServiceImpl implements CountryService {
 
     @Resource
-    CountryRepository countryRepository;
+    private CountryRepository countryRepository;
 
     @Override
     public List<CountryModel> getAll() {
@@ -25,13 +25,18 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void saveCountry(final CountryModel countryModel) {
-        countryRepository.save(countryModel);
+    public CountryModel saveCountry(final CountryModel countryModel) {
+        return countryRepository.save(countryModel);
     }
 
     @Override
     public Optional<CountryModel> getCountryByCode(final String countryCode) {
         return countryRepository.findByCountryCode(countryCode);
+    }
+
+    @Override
+    public void removeCountry(final Long countryId) {
+        countryRepository.deleteById(countryId);
     }
 
 }
