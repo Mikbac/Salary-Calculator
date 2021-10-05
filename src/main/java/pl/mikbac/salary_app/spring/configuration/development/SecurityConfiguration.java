@@ -43,7 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         AntPatterns.JS,
                         AntPatterns.IMAGES,
                         AntPatterns.FONTS,
-                        AntPatterns.JSON);
+                        AntPatterns.JSON,
+                        AntPatterns.H2);
     }
 
 }

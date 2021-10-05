@@ -21,5 +21,6 @@ public interface ConfigurationConstants {
         String IMAGES = "/static/img/**";
         String FONTS = "/fonts/**";
         String JSON = "/static/json/**";
+        String H2 = "/h2-console/**";
     }
 }
