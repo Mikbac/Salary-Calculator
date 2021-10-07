@@ -1,7 +1,6 @@
 package pl.mikbac.salary_app.spring.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import pl.mikbac.salary_app.model.CountryModel;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.Optional;
  * Created by MikBac on 2018
  */
 
-public interface CountryRepository extends CrudRepository<CountryModel, Long>, PagingAndSortingRepository<CountryModel, Long> {
+public interface CountryRepository extends JpaRepository<CountryModel, Long> {
 
     /**
      * Find country by country code.

@@ -105,11 +105,9 @@ http://localhost:8080/h2-console/
 
 |Endpoints|Usage|Params|
 |---|---|---|
-|```GET /api/countries```|Get all of the countries available for the app.||
-|```POST /api/countries```|Add a new countryModel.|**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**
-fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
-|```GET /api/salaries/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.|**
-{countryCode}** - Country code <br>**{salaryFromClient}** - Salary|
+|```GET /api/countries```                                                       |Get all of the countries available for the app.|                                                                                                                       |
+|```POST /api/countries```                                                      |Add a new countryModel.                        |**countryCode** - [String] <br>**tax** - [BigDecimal] <br>**fixedCosts** - [BigDecimal] <br>**currencyCode** - [String]|
+|```GET /api/salaries/pln?countryCode={countryCode}&salary={salaryFromClient}```|Calculate salary.                              |**{countryCode}** - Country code <br>**{salaryFromClient}** - Salary                                                   |
 
 ## Example:
 

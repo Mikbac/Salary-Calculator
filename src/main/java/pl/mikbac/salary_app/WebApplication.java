@@ -16,7 +16,6 @@ import pl.mikbac.salary_app.spring.property.NbpProperties;
 @Log4j2
 @SpringBootApplication(scanBasePackages = {Package.SPRING})
 @EntityScan(basePackages = {Package.MODEL})
-@EnableConfigurationProperties(value = {NbpProperties.class})
 public class WebApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
