@@ -5,7 +5,7 @@ package pl.mikbac.salary_app.exception;
  */
 
 public class ExchangeRateNotFoundException extends RuntimeException {
-    public ExchangeRateNotFoundException(String countryCode) {
+    public ExchangeRateNotFoundException(final String countryCode) {
         super("ExchangeRate not found for code: " + countryCode);
     }
 }

@@ -5,7 +5,7 @@ package pl.mikbac.salary_app.exception;
  */
 
 public class InvalidApiAddressException extends RuntimeException {
-    public InvalidApiAddressException(String url) {
+    public InvalidApiAddressException(final String url) {
         super("Invalid API address for url: " + url);
     }
 }

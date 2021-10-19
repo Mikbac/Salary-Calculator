@@ -23,4 +23,8 @@ public interface ConfigurationConstants {
         String JSON = "/static/json/**";
         String H2 = "/h2-console/**";
     }
+
+    interface Params {
+        String LANG = "lang";
+    }
 }

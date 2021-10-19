@@ -18,4 +18,12 @@ public interface GlobalConstants {
         String MONEY = "^([0-9]+|([0-9]+(\\.|\\,)[0-9]+))$";
     }
 
+    interface Currency {
+        String PLN = "PLN";
+    }
+
+    interface CustomPropertyPrefix {
+        String NBP_API = "nbp.api";
+    }
+
 }

@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import pl.mikbac.salary_app.constants.ConfigurationConstants.Params;
 import pl.mikbac.salary_app.spring.interceptor.CountryInterceptor;
 
 import java.util.Locale;
@@ -16,7 +17,7 @@ import java.util.Locale;
  */
 
 @Configuration
-public class MvcConfig implements WebMvcConfigurer {
+public class MvcConfiguration implements WebMvcConfigurer {
 
     @Bean
     public LocaleResolver localeResolver() {
@@ -28,7 +29,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
+        lci.setParamName(Params.LANG);
         return lci;
     }
 

@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @Profile(Profiles.DEVELOPMENT)
 @EnableSwagger2
-public class SwaggerConfig {
+public class SwaggerConfiguration {
 
     @Bean
     public Docket productApi() {

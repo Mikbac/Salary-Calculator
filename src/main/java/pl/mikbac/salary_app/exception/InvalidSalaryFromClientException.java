@@ -5,7 +5,7 @@ package pl.mikbac.salary_app.exception;
  */
 
 public class InvalidSalaryFromClientException extends RuntimeException {
-    public InvalidSalaryFromClientException(String salaryFromClient) {
+    public InvalidSalaryFromClientException(final String salaryFromClient) {
         super("Invalid value from client for: " + salaryFromClient);
     }
 }

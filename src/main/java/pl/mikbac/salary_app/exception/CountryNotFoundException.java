@@ -5,7 +5,7 @@ package pl.mikbac.salary_app.exception;
  */
 
 public class CountryNotFoundException extends RuntimeException {
-    public CountryNotFoundException(String countryCode) {
+    public CountryNotFoundException(final String countryCode) {
         super("Country not found for code: " + countryCode);
     }
 }

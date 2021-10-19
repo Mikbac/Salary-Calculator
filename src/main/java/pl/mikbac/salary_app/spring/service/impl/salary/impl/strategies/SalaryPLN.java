@@ -17,20 +17,16 @@ import java.math.RoundingMode;
 @Service
 public class SalaryPLN implements SalaryStrategy {
 
-    public SalaryPLN() {
-    }
-
     public BigDecimal calculateSalary(final BigDecimal exchangeRate,
                                       final CountryModel country,
                                       final String salaryFromClient) {
         try {
             final BigDecimal valueOfMoney = new BigDecimal(salaryFromClient);
             final BigDecimal baseValue = (valueOfMoney.multiply(BigDecimal.valueOf(22))).subtract(country.getFixedCosts());
-            final BigDecimal salary = baseValue.subtract(baseValue.multiply(country.getTax().divide(BigDecimal.valueOf(100))));
+            final BigDecimal salary = baseValue.subtract(baseValue.multiply(country.getTax().divide(BigDecimal.valueOf(100), RoundingMode.CEILING)));
             final BigDecimal salaryPLN = exchangeRate.multiply(salary);
             return salaryPLN.setScale(2, RoundingMode.CEILING);
         } catch (NumberFormatException e) {
-            log.error("Invalid value from client for: {}", () -> salaryFromClient);
             throw new InvalidSalaryFromClientException(salaryFromClient);
         }
     }

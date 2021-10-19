@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import pl.mikbac.salary_app.constants.GlobalConstants.Currency;
+import pl.mikbac.salary_app.constants.NBPApiConstants;
+import pl.mikbac.salary_app.constants.NBPApiConstants.Query.Name;
+import pl.mikbac.salary_app.constants.NBPApiConstants.Query.Value;
 import pl.mikbac.salary_app.exception.InvalidApiAddressException;
 import pl.mikbac.salary_app.model.ExchangeRate;
 import pl.mikbac.salary_app.spring.property.NbpProperties;
@@ -25,14 +29,17 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     @Resource
     private NbpProperties nbpProperties;
 
+    @Resource
+    private RestTemplate restTemplate;
+
     @Override
     public Optional<BigDecimal> getExchangeRate(final String currencyCode) {
-        String url = getUrl(currencyCode);
-        if (currencyCode.equalsIgnoreCase("PLN")) {
+        final String url = getUrl(currencyCode);
+
+        if (currencyCode.equalsIgnoreCase(Currency.PLN)) {
             return Optional.of(BigDecimal.valueOf(1));
         }
         try {
-            RestTemplate restTemplate = new RestTemplate();
             ExchangeRate exchangeRate = restTemplate.getForObject(url, ExchangeRate.class);
             if (exchangeRate != null) {
                 return Optional.ofNullable(exchangeRate.getRates()[0].getMid());
@@ -40,7 +47,6 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
                 return Optional.empty();
             }
         } catch (HttpClientErrorException e) {
-            log.error("Invalid API address for url: {}", () -> url);
             throw new InvalidApiAddressException(url);
         }
     }
@@ -48,8 +54,8 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     private String getUrl(final String currencyCode) {
         return UriComponentsBuilder
                 .fromUriString(nbpProperties.getAddress())
-                .path("/api/exchangerates/rates/A/" + currencyCode)
-                .queryParam("format", "json")
+                .path(NBPApiConstants.PATH + currencyCode)
+                .queryParam(Name.FORMAT, Value.JSON)
                 .build()
                 .toUriString();
     }

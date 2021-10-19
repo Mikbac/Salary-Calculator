@@ -7,13 +7,15 @@ import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 
+import static pl.mikbac.salary_app.constants.GlobalConstants.CustomPropertyPrefix.NBP_API;
+
 /**
  * Created by MikBac on 22.08.2021
  */
 
 @Setter
 @Getter
-@ConfigurationProperties(prefix = "nbp.api")
+@ConfigurationProperties(prefix = NBP_API)
 @Component
 public class NbpProperties {
 
