@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.mikbac.salary_app.constants.WebConstants.Mapping;
 import pl.mikbac.salary_app.spring.facade.SalaryFacade;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
+
+import static pl.mikbac.salary_app.constants.WebConstants.Mapping;
 
 /**
  * Created by MikBac on 2018

@@ -3,8 +3,9 @@ package pl.mikbac.salary_app.spring.controller.page;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.mikbac.salary_app.constants.WebConstants.Mapping;
-import pl.mikbac.salary_app.constants.WebConstants.Views;
+
+import static pl.mikbac.salary_app.constants.WebConstants.Mapping;
+import static pl.mikbac.salary_app.constants.WebConstants.Views;
 
 /**
  * Created by MikBac on 19.08.2019

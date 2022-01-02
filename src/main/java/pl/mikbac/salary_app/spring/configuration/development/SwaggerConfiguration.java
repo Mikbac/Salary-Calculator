@@ -3,12 +3,13 @@ package pl.mikbac.salary_app.spring.configuration.development;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import pl.mikbac.salary_app.constants.ConfigurationConstants.Profiles;
-import pl.mikbac.salary_app.constants.GlobalConstants.Package;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import static pl.mikbac.salary_app.constants.ConfigurationConstants.Profiles;
+import static pl.mikbac.salary_app.constants.GlobalConstants.Package;
 
 /**
  * Created by MikBac on 13.08.2019

@@ -10,12 +10,14 @@ import pl.mikbac.salary_app.spring.converter.Converter;
  */
 
 @Service
-public class Country implements Converter<CountryData, CountryModel> {
+public class CountryConverter implements Converter<CountryData, CountryModel> {
     @Override
     public CountryData convert(CountryModel model) {
         return CountryData.builder()
                 .countryCode(model.getCountryCode())
+                .tax(model.getTax())
                 .currencyCode(model.getCurrencyCode())
+                .fixedCosts(model.getFixedCosts())
                 .build();
     }
 
@@ -23,6 +25,8 @@ public class Country implements Converter<CountryData, CountryModel> {
     public CountryModel inverseConvert(CountryData data) {
         return CountryModel.builder()
                 .countryCode(data.getCountryCode())
+                .tax(data.getTax())
+                .fixedCosts(data.getFixedCosts())
                 .currencyCode(data.getCurrencyCode())
                 .build();
     }

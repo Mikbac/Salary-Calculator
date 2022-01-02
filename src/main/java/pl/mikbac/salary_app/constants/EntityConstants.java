@@ -8,6 +8,8 @@ public interface EntityConstants {
 
     interface Model {
         String PK = "pk";
+        String UPDATE_TIME = "updateTime";
+        String CREATION_TIME = "creationTime";
     }
 
     interface Country {

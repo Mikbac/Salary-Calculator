@@ -7,10 +7,11 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import pl.mikbac.salary_app.constants.ConfigurationConstants.Params;
 import pl.mikbac.salary_app.spring.interceptor.CountryInterceptor;
 
 import java.util.Locale;
+
+import static pl.mikbac.salary_app.constants.ConfigurationConstants.Params;
 
 /**
  * Created by MikBac on 06.08.2019

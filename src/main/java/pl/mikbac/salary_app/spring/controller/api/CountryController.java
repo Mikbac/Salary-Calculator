@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.mikbac.salary_app.constants.WebConstants.Mapping;
 import pl.mikbac.salary_app.data.impl.CountryData;
 import pl.mikbac.salary_app.spring.facade.CountryFacade;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
+
+import static pl.mikbac.salary_app.constants.WebConstants.Mapping;
 
 /**
  * Created by MikBac on 2018
@@ -43,6 +44,7 @@ public class CountryController {
     }
 
     @PostMapping(value = Mapping.COUNTRIES)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<CountryData> addCountry(@RequestBody @Valid final CountryData country) {
         log.info("Adding new country: {}", () -> country);
         return ResponseEntity.status(HttpStatus.CREATED)

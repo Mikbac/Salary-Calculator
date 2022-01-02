@@ -5,10 +5,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import pl.mikbac.salary_app.constants.GlobalConstants.Currency;
-import pl.mikbac.salary_app.constants.NBPApiConstants;
-import pl.mikbac.salary_app.constants.NBPApiConstants.Query.Name;
-import pl.mikbac.salary_app.constants.NBPApiConstants.Query.Value;
 import pl.mikbac.salary_app.exception.InvalidApiAddressException;
 import pl.mikbac.salary_app.model.ExchangeRate;
 import pl.mikbac.salary_app.spring.property.NbpProperties;
@@ -17,6 +13,11 @@ import pl.mikbac.salary_app.spring.repository.CurrencyRepository;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Optional;
+
+import static pl.mikbac.salary_app.constants.GlobalConstants.Currency;
+import static pl.mikbac.salary_app.constants.NBPApiConstants.PATH;
+import static pl.mikbac.salary_app.constants.NBPApiConstants.Query.Name;
+import static pl.mikbac.salary_app.constants.NBPApiConstants.Query.Value;
 
 /**
  * Created by MikBac on 07.09.2019
@@ -54,7 +55,7 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     private String getUrl(final String currencyCode) {
         return UriComponentsBuilder
                 .fromUriString(nbpProperties.getAddress())
-                .path(NBPApiConstants.PATH + currencyCode)
+                .path(PATH + currencyCode)
                 .queryParam(Name.FORMAT, Value.JSON)
                 .build()
                 .toUriString();

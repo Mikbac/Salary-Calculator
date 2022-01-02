@@ -2,9 +2,7 @@ package pl.mikbac.salary_app.data.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import pl.mikbac.salary_app.data.Data;
 
 import javax.validation.constraints.NotNull;
@@ -17,8 +15,7 @@ import static pl.mikbac.salary_app.constants.GlobalConstants.Regex;
  * Created by MikBac on 07.09.2019
  */
 
-@Getter
-@Setter
+@lombok.Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

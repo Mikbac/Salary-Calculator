@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface CurrencyRepository {
 
     /**
-     * Find currency by currency code.
+     * Find currency exchange rate by currency code.
      *
      * @param currencyCode of selected currency.
      * @return optional {@link BigDecimal}.

@@ -6,8 +6,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import pl.mikbac.salary_app.constants.ConfigurationConstants.AntPatterns;
-import pl.mikbac.salary_app.constants.ConfigurationConstants.Profiles;
+
+import static pl.mikbac.salary_app.constants.ConfigurationConstants.AntPatterns;
+import static pl.mikbac.salary_app.constants.ConfigurationConstants.Profiles;
 
 /**
  * Created by MikBac on 06.08.2019
