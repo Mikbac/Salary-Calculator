@@ -30,7 +30,7 @@ public class SalaryControllerTest {
 
     @Test
     @DisplayName("Get salary.")
-    public void getSalaryWhenDataIsCorrect() throws Exception {
+    public void get_salary_when_data_is_correct() throws Exception {
         this.mockMvc.perform(get(Mapping.API + Mapping.CALCULATOR + "/?countryCode=UK&salary=123")
                         .contentType(APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk());

@@ -54,7 +54,7 @@ public class CurrencyRepositoryTest {
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is correct value")
-    public void getExchangeRateWhenCountryCodeIsCorrect() {
+    public void get_exchange_rate_when_country_code_is_correct() {
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("EUR").get());
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("eur").get());
         assertNotEquals(new BigDecimal(0), currencyRepository.getExchangeRate("GBP").get());
@@ -63,7 +63,7 @@ public class CurrencyRepositoryTest {
 
     @Test
     @DisplayName("return getExchangeRate when countryCode is PLN")
-    public void getExchangeRateWhenCountryCodeIsPLN() {
+    public void get_exchange_rate_when_country_code_is_PLN() {
         assertEquals(new BigDecimal(1), currencyRepository.getExchangeRate("PLN").get());
         assertEquals(new BigDecimal(1), currencyRepository.getExchangeRate("pln").get());
     }

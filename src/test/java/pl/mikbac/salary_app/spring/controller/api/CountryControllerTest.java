@@ -34,7 +34,7 @@ public class CountryControllerTest {
 
     @Test
     @DisplayName("Get a list of all available countries.")
-    public void getCountriesWhenQueryIsCorrect() throws Exception {
+    public void get_countries_when_query_is_correct() throws Exception {
         this.mockMvc.perform(get(Mapping.API + Mapping.COUNTRIES)
                         .contentType(APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())

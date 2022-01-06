@@ -23,7 +23,7 @@ public class WebApplicationTest {
     CountryController countryController;
 
     @Test
-    public void contextLoads() {
+    public void context_loads() {
         assertThat(countryController).isNotNull();
     }
 
